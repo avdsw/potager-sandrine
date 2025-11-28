@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les produits du potager de Sandrine – Jardin des Saveurs, Rebecq</title>
+  <meta name="description" content="Légumes, fruits, herbes et produits transformés du potager de Sandrine, au Jardin des Saveurs à Rebecq. Paniers de saison, jus, confitures, œufs, produits 100% naturels." />
+  <style>
+    :root {
+      --bg: #f6faf5;
+      --accent: #6a9f4b;
+      --accent-dark: #4f7a36;
+      --accent-soft: #d8ebcc;
+      --text: #243021;
+      --muted: #6c7466;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(246,250,245,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #dde7d6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .logo span {
+      color: var(--accent-dark);
+    }
+
+    .logo-sub {
+      font-size: 0.7rem;
+      text-transform: none;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+    }
+
+    .hero {
+      padding: 3rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-dark);
+      background: rgba(106,159,75,0.12);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .origin {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.3rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.05s ease, box-shadow 0.1s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #c8d9bd;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: #e3f0dd;
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      min-height: 260px;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(25,40,20,0.2);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.1);
+      transform: scale(1.03);
+    }
+
+    main {
+      padding-bottom: 3rem;
+    }
+
+    section {
+      padding: 2.2rem 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+      border: 1px solid #e0ebd8;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .product-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .product-cat {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .product-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .product-tagline {
+      font-size: 0.85rem;
+      color: var(--accent-dark);
+      font-weight: 500;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 1.1rem;
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      border: 1px solid #dde9d2;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .bullet {
+      font-size: 0.9rem;
+      margin-top: 0.1rem;
+    }
+
+    .highlight {
+      font-weight: 600;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    form {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.7rem;
+      border: 1px solid #cfdccb;
+      font: inherit;
+      background: #f9fdf7;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+      background: #ffffff;
+    }
+
+    /* Bandeau potager */
+    .field-strip {
+      background: #e4f0dd;
+      border-top: 1px solid #cfdfc4;
+      border-bottom: 1px solid #cfdfc4;
+    }
+
+    .field-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+      padding: 1.8rem 0;
+    }
+
+    .field-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .field-list {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: var(--muted);
+    }
+
+    .field-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #c8dfba;
+      color: var(--accent-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .field-image {
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 14px 30px rgba(30,50,20,0.15);
+      background: #000;
+    }
+
+    .field-image img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    footer {
+      border-top: 1px solid #dde7d6;
+      padding: 1.5rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent-dark);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-image {
+        order: -1;
+      }
+      .two-cols,
+      .contact-grid,
+      .field-content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div>
+          <div class="logo">
+            <span>Le potager de Sandrine</span>
+          </div>
+          <div class="logo-sub">Jardin des Saveurs · Rebecq</div>
+        </div>
+        <div class="nav-links">
+          <a href="#accueil">Accueil</a>
+          <a href="#produits">Les produits</a>
+          <a href="#paniers">Paniers & formules</a>
+          <a href="#potager">Le potager</a>
+          <a href="#commande">Commander</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="accueil">
+    <!-- HERO -->
+    <section class="container hero">
+      <div>
+        <div class="badge">
+          • Production locale • 100% naturel • Rebecq
+        </div>
+        <h1>Les produits du potager de Sandrine</h1>
+        <p class="hero-lead">
+          Légumes, fruits, herbes et produits transformés cultivés et préparés
+          à la main au <strong>Jardin des Saveurs</strong> à Rebecq. Du semis à votre assiette.
+        </p>
+        <p class="origin">
+          Sans pesticides de synthèse, avec filets anti-insectes et engrais organiques.
+          Des produits de saison, cueillis à maturité.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Légumes & fruits de saison</span>
+          <span class="tag">Confitures, jus, gelées</span>
+          <span class="tag">Œufs de poules élevées au grand air</span>
+          <span class="tag">Paniers sur mesure</span>
+        </div>
+
+        <div class="btn-row">
+          <a href="#produits" class="btn btn-primary">
+            Découvrir les produits
+          </a>
+          <a href="#commande" class="btn btn-secondary">
+            Commander un panier
+          </a>
+        </div>
+        <div class="small-note">
+          Retrait au potager à Rebecq ou livraison locale selon disponibilités.
+        </div>
+      </div>
+
+      <div class="hero-image" aria-hidden="true">
+        <!-- Photo de potager / récolte -->
+        <img src="https://images.unsplash.com/photo-1592998380016-b1b9491443f7?auto=format&fit=crop&w=1200&q=80"
+             alt="Potager maraîcher avec légumes frais">
+      </div>
+    </section>
+
+    <!-- PRODUITS -->
+    <section id="produits">
+      <div class="container">
+        <h2>Les grandes familles de produits</h2>
+        <p class="section-intro">
+          L'offre varie au fil des saisons. Voici un aperçu des produits que Sandrine propose
+          régulièrement au potager et sur les marchés.
+        </p>
+
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-cat">Légumes</div>
+            <div class="product-title">Légumes de saison</div>
+            <div class="product-note">
+              Tomates anciennes, courgettes, carottes, poireaux, choux d'hiver,
+              haricots grimpants, pommes de terre, panais, potimarrons…
+            </div>
+            <div class="product-tagline">
+              Récoltés le plus tard possible avant la vente pour le goût et la fraîcheur.
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-cat">Fruits</div>
+            <div class="product-title">Fruits du verger</div>
+            <div class="product-note">
+              Pommes, poires palissées, figues, pêches, prunes, cerises, rhubarbe…
+            </div>
+            <div class="product-tagline">
+              Idéals à croquer, en compote ou en pâtisserie.
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-cat">Herbes & aromatiques</div>
+            <div class="product-title">Herbes fraîches</div>
+            <div class="product-note">
+              Basilic, thym, romarin, menthe, persil, ciboulette, sauge et autres aromatiques.
+            </div>
+            <div class="product-tagline">
+              Pour relever vos salades, soupes, sauces et plats mijotés.
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-cat">Produits transformés</div>
+            <div class="product-title">Confitures, gelées & jus</div>
+            <div class="product-note">
+              Confitures, gelées, compotes, jus de fruits, pâtes de fruits, huiles de noix…
+            </div>
+            <div class="product-tagline">
+              Transformés à partir des fruits et légumes du potager, dans la cuisine de Sandrine.
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-cat">Œufs</div>
+            <div class="product-title">Œufs de poules & coureurs indiens</div>
+            <div class="product-note">
+              Poules élevées en plein air au milieu du verger, avec les canards coureurs indiens
+              qui nettoient les limaces.
+            </div>
+            <div class="product-tagline">
+              Des œufs pour la cuisine de tous les jours ou pour les gâteaux du week-end.
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-cat">Produits spéciaux</div>
+            <div class="product-title">Poudres, séchés & autres</div>
+            <div class="product-note">
+              Poudres de paprika ou de gingembre, fruits séchés, noix, préparations spéciales selon les années.
+            </div>
+            <div class="product-tagline">
+              Parfaits pour offrir ou pour se faire plaisir.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANIERS & FORMULES -->
+    <section id="paniers">
+      <div class="container two-cols">
+        <div>
+          <h2>Paniers & formules</h2>
+          <p class="section-intro">
+            Sandrine prépare des paniers de saison en fonction des récoltes du moment
+            et de vos envies. Les compositions varient chaque semaine.
+          </p>
+
+          <div class="card">
+            <h3>Exemples de paniers</h3>
+            <ul>
+              <li>
+                <span class="bullet">🥕</span>
+                <span><span class="highlight">Panier “Classique”</span> : assortiment de légumes de base (carottes, poireaux, pommes de terre, salade, oignons…).</span>
+              </li>
+              <li>
+                <span class="bullet">🍅</span>
+                <span><span class="highlight">Panier “Couleurs”</span> : tomates de différentes variétés, courgettes, aubergines, herbes fraîches.</span>
+              </li>
+              <li>
+                <span class="bullet">🍎</span>
+                <span><span class="highlight">Panier “Verger”</span> : fruits de saison + une confiture ou un jus du potager.</span>
+              </li>
+              <li>
+                <span class="bullet">🎁</span>
+                <span><span class="highlight">Paniers cadeaux</span> : sélection sur mesure de produits transformés et de fruits/légumes pour offrir.</span>
+              </li>
+            </ul>
+            <p class="small-note" style="margin-top: 0.6rem;">
+              Les photos et compositions sont indicatives. Tout dépend de la météo, des saisons
+              et des récoltes de la semaine.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Informations pratiques</h3>
+          <ul>
+            <li>
+              <span class="bullet">📍</span>
+              <span><span class="highlight">Lieu</span> : Jardin des Saveurs, Rebecq (adresse précisée lors de la confirmation).</span>
+            </li>
+            <li>
+              <span class="bullet">📦</span>
+              <span><span class="highlight">Retrait</span> : sur rendez-vous ou créneaux définis, directement au potager.</span>
+            </li>
+            <li>
+              <span class="bullet">🚗</span>
+              <span><span class="highlight">Livraison locale</span> : possible selon le volume et la distance (à convenir ensemble).</span>
+            </li>
+            <li>
+              <span class="bullet">💶</span>
+              <span><span class="highlight">Paiement</span> : virement, espèces, ou terminal de paiement si disponible.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDEAU POTAGER -->
+    <section id="potager" class="field-strip">
+      <div class="container field-content">
+        <div class="field-text">
+          <span class="field-tag">Le potager & les pratiques</span>
+          <h2>Un potager vivant, respectueux du sol</h2>
+          <p>
+            Sandrine travaille le sol le moins possible, utilise des <strong>engrais organiques</strong>,
+            des filets anti-insectes, des associations de cultures, et laisse une grande place
+            à la biodiversité : haies, fleurs, insectes auxiliaires…
+          </p>
+          <p class="field-list">
+            🌱 Rotations de cultures · 🌼 Fleurs pour les pollinisateurs ·<br />
+            🦆 Coureurs indiens contre les limaces · 🌿 Paillage et compost maison
+          </p>
+        </div>
+        <div class="field-image" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1000&q=80"
+               alt="Rangées de légumes dans un potager avec fleurs">
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMANDE / CONTACT -->
+    <section id="commande">
+      <div class="container contact-grid">
+        <div>
+          <h2>Commander un panier ou des produits</h2>
+          <p class="section-intro">
+            Pour commander un panier, réserver certains produits ou poser une question,
+            remplissez le formulaire ci-dessous. Sandrine vous répondra pour confirmer
+            la disponibilité, le prix et les modalités de retrait ou de livraison.
+          </p>
+          <p class="small-note">
+            N'hésitez pas à préciser si vous avez des préférences (plus de fruits,
+            plus de légumes, pas de chou, etc.) ou si c'est pour un cadeau.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Formulaire de commande / contact</h3>
+          <form onsubmit="sendOrderEmail(event)">
+            <div>
+              <label for="name">Nom et prénom</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="email">Adresse e-mail</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div>
+              <label for="type">Type de demande</label>
+              <select id="type" name="type">
+                <option value="panier">Commander un panier de saison</option>
+                <option value="produits">Commander des produits précis</option>
+                <option value="cadeau">Panier cadeau</option>
+                <option value="autre">Autre question</option>
+              </select>
+            </div>
+            <div>
+              <label for="details">Produits souhaités / nombre de paniers / préférences</label>
+              <textarea id="details" name="details" placeholder="Exemple : 1 panier classique pour 4 personnes, plutôt légumes racines, pas de chou, si possible des œufs et une confiture."></textarea>
+            </div>
+            <div>
+              <label for="message">Message complémentaire (dates, contraintes, etc.)</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Envoyer ma demande
+            </button>
+            <div class="small-note" style="margin-top: 0.5rem;">
+              Un e-mail prérempli s’ouvrira vers le potager. Il ne vous restera qu’à cliquer sur “Envoyer”.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        © <span id="year"></span> Le potager de Sandrine – Jardin des Saveurs, Rebecq.
+        Tous droits réservés.
+      </div>
+      <div style="margin-top: 0.4rem;">
+        Contact : <a href="mailto:arnaudvanderstraten@gmail.com">arnaudvanderstraten@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Affichage de l'année automatique
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Envoi de la commande par e-mail via mailto:
+    function sendOrderEmail(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const type = document.getElementById("type").value;
+      const details = document.getElementById("details").value || "";
+      const message = document.getElementById("message").value || "";
+
+      const typeLabelMap = {
+        panier: "Commander un panier de saison",
+        produits: "Commander des produits précis",
+        cadeau: "Panier cadeau",
+        autre: "Autre question"
+      };
+      const typeLabel = typeLabelMap[type] || type;
+
+      const subject = encodeURIComponent("Demande - produits du potager de Sandrine");
+      const body = encodeURIComponent(
+        "Nom : " + name + "\n" +
+        "Email : " + email + "\n" +
+        "Type de demande : " + typeLabel + "\n\n" +
+        "Détails / produits souhaités :\n" + details + "\n\n" +
+        "Message complémentaire :\n" + message
+      );
+
+      const mailto = "mailto:arnaudvanderstraten@gmail.com"
+        + "?subject=" + subject
+        + "&body=" + body;
+
+      window.location.href = mailto;
+    }
+  </script>
+</body>
+</html>
