@@ -1,903 +1,954 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Le Jardin des Saveurs – Produits de Sandrine</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Produits 100% naturels de Sandrine, maraîchère à Rebecq : paniers de saison, confitures, pâtes de fruits, cuirs de fruits, noix, épicerie et légumes frais."
-  />
+  <meta charset="UTF-8">
+  <title>Le Jardin des Saveurs – Potager de Sandrine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Confitures, gelées, jus de fruits, cuirs de fruits, noix gourmandes et huiles de noix artisanales préparés au Jardin des Saveurs, le potager de Sandrine à Rebecq.">
   <style>
     :root {
-      --green: #3b7f4a;
-      --green-dark: #295637;
-      --beige: #f5f1e8;
-      --accent: #e2a03f;
-      --text: #333333;
-      --max-width: 1100px;
+      --fond: #faf5ee;
+      --vert: #4a7c59;
+      --vert-clair: #77a37b;
+      --accent: #d98a4b;
+      --texte: #333;
+      --blanc: #fff;
+      --ombre: 0 10px 25px rgba(0,0,0,0.08);
+      --rayon: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: #faf7f2;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--fond);
+      color: var(--texte);
+      line-height: 1.5;
     }
 
-    header {
-      background: linear-gradient(
-          120deg,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.2)
-        ),
-        url("https://images.pexels.com/photos/1268101/pexels-photo-1268101.jpeg?auto=compress&cs=tinysrgb&w=1200")
-          center/cover no-repeat;
-      color: white;
-      padding: 1.5rem 1.5rem 4rem;
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; }
+
+    /* HERO */
+    header.hero {
+      background:
+        linear-gradient(135deg, rgba(77,120,89,0.5), rgba(219,185,135,0.4)),
+        url("images/jardin/potager-terre.jpg") center/cover no-repeat;
+      color: var(--blanc);
+      padding: 2.5rem 1.5rem 3.5rem;
     }
 
-    .top-bar {
-      max-width: var(--max-width);
-      margin: 0 auto 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-size: 0.95rem;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 0.15rem;
-    }
-
-    nav a:hover {
-      border-color: white;
-    }
-
-    .hero {
-      max-width: var(--max-width);
+    .hero-inner {
+      max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      grid-template-columns: minmax(0,1.6fr) minmax(0,1fr);
       gap: 2rem;
       align-items: center;
     }
 
-    .hero h1 {
-      font-size: clamp(2.1rem, 3vw + 1rem, 3rem);
-      margin-bottom: 1rem;
-    }
-
-    .hero-highlight {
-      display: inline-block;
-      background: rgba(245, 241, 232, 0.15);
-      border-radius: 999px;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.9rem;
+    .hero-text h1 {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
       margin-bottom: 0.5rem;
     }
 
-    .hero p {
-      margin-bottom: 1rem;
+    .hero-text p {
+      font-size: 1rem;
       max-width: 32rem;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-list {
-      list-style: none;
-      margin-top: 0.75rem;
-    }
-
-    .hero-list li {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.95rem;
-    }
-
-    .hero-list span.icon {
-      font-size: 1.1rem;
-    }
-
-    .hero-actions {
-      margin-top: 1.25rem;
+    .hero-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
     }
 
-    .btn {
+    .badge {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      background: rgba(0,0,0,0.18);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.7rem 1.2rem;
+      padding: 0.6rem 1.3rem;
       border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.1s ease, box-shadow 0.1s ease,
-        background 0.2s ease;
-      white-space: nowrap;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #2d2412;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      background: var(--vert);
+      color: var(--blanc);
     }
+    .btn-primary:hover { background: var(--vert-clair); transform: translateY(-1px); }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      background: #e8ad55;
+    .btn-secondary {
+      background: var(--blanc);
+      color: var(--vert);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.16);
     }
+    .btn-secondary:hover { background: #f4f4f4; transform: translateY(-1px); }
 
-    .btn-outline {
-      border: 1px solid rgba(245, 241, 232, 0.8);
-      color: white;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: rgba(245, 241, 232, 0.1);
-    }
-
-    .hero-image-card {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 1.5rem;
-      padding: 1rem;
-      backdrop-filter: blur(2px);
-    }
-
-    .hero-image {
-      border-radius: 1.2rem;
-      overflow: hidden;
-      aspect-ratio: 4 / 3;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-caption {
-      font-size: 0.9rem;
+    .hero-note {
+      font-size: 0.8rem;
       opacity: 0.9;
     }
 
-    main {
-      max-width: var(--max-width);
-      margin: -2rem auto 4rem;
-      padding: 0 1.5rem;
+    .hero-photo {
       position: relative;
-      z-index: 1;
+    }
+
+    .hero-card {
+      background: rgba(250,245,238,0.97);
+      color: var(--texte);
+      border-radius: 24px;
+      padding: 1.2rem;
+      box-shadow: var(--ombre);
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: var(--vert);
+    }
+
+    .hero-card p {
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-grid-mini {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 0.35rem;
+    }
+
+    .hero-grid-mini img {
+      border-radius: 12px;
+      height: 70px;
+      object-fit: cover;
+    }
+
+    /* SECTIONS */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
     }
 
     section {
-      margin-top: 3rem;
+      margin-bottom: 3rem;
     }
 
-    .card {
-      background: white;
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+      color: var(--vert);
     }
 
-    h2.section-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--green-dark);
+    section > p.section-intro {
+      font-size: 0.95rem;
+      max-width: 36rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
     }
 
-    .intro-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
-      gap: 1.5rem;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      background: var(--beige);
-      font-size: 0.8rem;
-      margin-right: 0.3rem;
-      margin-top: 0.3rem;
-    }
-
-    .pill span.icon {
-      font-size: 1rem;
-    }
-
-    .products-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1.5rem;
-      margin-top: 1.5rem;
     }
 
-    .product-card {
-      background: #ffffff;
-      border-radius: 1.2rem;
-      padding: 1rem 1rem 1.2rem;
-      border: 1px solid #f0e6d4;
+    .card {
+      background: var(--blanc);
+      border-radius: var(--rayon);
+      overflow: hidden;
+      box-shadow: var(--ombre);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
-    .product-tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--green-dark);
-      opacity: 0.8;
-      margin-bottom: 0.2rem;
+    .card img {
+      height: 220px;
+      object-fit: cover;
     }
 
-    .product-title {
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .product-desc {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .product-meta {
+    .card-body {
+      padding: 1rem 1.1rem 0.9rem;
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-top: 0.4rem;
+      flex-direction: column;
+      gap: 0.3rem;
+      flex: 1;
+    }
+
+    .card-body h3 {
+      font-size: 1.05rem;
+      color: var(--vert);
+    }
+
+    .card-body p {
       font-size: 0.9rem;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      color: #666;
     }
 
     .price {
-      font-weight: 700;
-      color: var(--green-dark);
-    }
-
-    .note {
-      font-size: 0.8rem;
-      opacity: 0.8;
-    }
-
-    .howto-list {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
-
-    .howto-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .howto-badge {
-      width: 1.4rem;
-      height: 1.4rem;
-      border-radius: 999px;
-      background: var(--green);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-
-    form label {
-      display: block;
       font-weight: 600;
-      margin-top: 0.8rem;
-      margin-bottom: 0.15rem;
-      font-size: 0.9rem;
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-top: 0.15rem;
     }
 
-    form input,
-    form select,
-    form textarea {
+    .card-qty {
+      margin-top: 0.45rem;
+      font-size: 0.85rem;
+    }
+
+    .card-qty input {
+      width: 70px;
+      padding: 0.2rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.2);
+      font-size: 0.85rem;
+      margin-left: 0.3rem;
+      text-align: center;
+    }
+
+    .card-footer {
+      padding: 0 1.1rem 1.1rem;
+    }
+
+    .card-footer .btn-secondary {
       width: 100%;
-      padding: 0.55rem 0.7rem;
-      border-radius: 0.6rem;
-      border: 1px solid #d3c8b7;
-      font-size: 0.9rem;
-      font-family: inherit;
-      resize: vertical;
+      box-shadow: none;
+      border: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.85rem;
     }
 
-    form textarea {
-      min-height: 120px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-
-    .form-help {
-      font-size: 0.8rem;
-      opacity: 0.8;
-      margin-top: 0.2rem;
-    }
-
-    .form-footer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
+    /* COMMANDE */
+    #commande {
       margin-top: 1rem;
     }
 
-    .form-note {
-      font-size: 0.75rem;
-      opacity: 0.75;
+    .commande-box {
+      background: #f5f0e6;
+      border-radius: var(--rayon);
+      padding: 1.3rem 1.4rem;
+      box-shadow: var(--ombre);
+      font-size: 0.9rem;
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap: 1rem;
+    }
+
+    #commande-liste {
+      max-height: 260px;
+      overflow-y: auto;
+      padding-right: 0.4rem;
+    }
+
+    #commande-liste ul {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+
+    #commande-liste li {
+      margin-bottom: 0.3rem;
+    }
+
+    .commande-total {
+      font-weight: 700;
+      margin-top: 0.4rem;
+      color: var(--vert);
+    }
+
+    .commande-note {
+      font-size: 0.8rem;
+      margin-top: 0.6rem;
+      opacity: 0.9;
+    }
+
+    .commande-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: #f5f0e6;
+      border-radius: var(--rayon);
+      padding: 1.3rem 1.4rem;
+      display: grid;
+      grid-template-columns: minmax(0,1.6fr) minmax(0,1fr);
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-box strong {
+      color: var(--vert);
     }
 
     footer {
-      background: #1f2a22;
-      color: #f5f1e8;
-      padding: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding: 1rem 1.5rem 2rem;
+      font-size: 0.8rem;
       text-align: center;
-      font-size: 0.85rem;
+      color: #777;
     }
 
-    footer a {
-      color: #f5f1e8;
-      text-decoration: underline;
-      text-decoration-style: dotted;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
+    @media (max-width: 800px) {
+      .hero-inner {
         grid-template-columns: 1fr;
       }
-
-      main {
-        margin-top: -1rem;
+      .hero-photo {
+        order: -1;
       }
-
-      .intro-grid {
+      header.hero {
+        padding-top: 1.8rem;
+      }
+      .commande-box,
+      .contact-box {
         grid-template-columns: 1fr;
-      }
-
-      header {
-        padding-bottom: 3rem;
       }
     }
 
-    @media (max-width: 600px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      nav a {
-        margin-left: 0;
-        margin-right: 0.8rem;
-      }
-
-      .card {
-        padding: 1.2rem;
-      }
+    @media (max-width: 500px) {
+      main { padding-inline: 1rem; }
+      header.hero { padding-inline: 1rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="top-bar">
-      <div class="logo">Le Jardin des Saveurs</div>
-      <nav>
-        <a href="#produits">Produits</a>
-        <a href="#comment-commander">Comment commander</a>
-        <a href="#commande">Passer commande</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Le Jardin des Saveurs</h1>
+      <p>
+        Confitures, gelées, jus, cuirs de fruits, noix gourmandes et huiles de noix,
+        préparés en petites séries au potager de Sandrine à Rebecq.
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge">Fruits du jardin</span>
+        <span class="badge">Fabrication artisanale</span>
+        <span class="badge">Sans arômes artificiels</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#confitures" class="btn-primary">Découvrir les confitures</a>
+        <a href="#commande" class="btn-secondary">Voir ma commande</a>
+      </div>
+      <p class="hero-note">
+        Vous choisissez vos produits, le site calcule le total estimé, puis vous payez
+        simplement via Revolut ou virement.
+      </p>
     </div>
 
-    <div class="hero">
+    <div class="hero-photo">
+      <div class="hero-card">
+        <h2>Le potager de Sandrine</h2>
+        <p>De la terre au bocal&nbsp;: tout est fait maison, en respectant les saisons.</p>
+        <div class="hero-grid-mini">
+          <!-- Remplace ces 3 photos par de belles photos du jardin / des produits -->
+          <img src="images/produits/confiture-fraises.jpg" alt="Bocal de confiture de fraises artisanale">
+          <img src="images/produits/jus-pommes.jpg" alt="Bouteille de jus de pommes artisanal">
+          <img src="images/jardin/potager-butte.jpg" alt="Vue du potager">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CONFITURES & GELÉES -->
+  <section id="confitures">
+    <h2>Confitures & gelées artisanales</h2>
+    <p class="section-intro">
+      Fruits cueillis à maturité, cuisson douce au sucre&nbsp;: des recettes simples,
+      lisibles sur chaque étiquette.
+    </p>
+
+    <div class="grid">
+      <!-- Chaque card a data-product et data-price pour le calcul du total -->
+      <article class="card" data-product="Confiture de prunes bleues (350 g)" data-price="7">
+        <img src="images/produits/confiture-prunes-bleues.jpg" alt="Bocal de confiture de prunes bleues artisanale">
+        <div class="card-body">
+          <h3>Confiture de prunes bleues</h3>
+          <p class="pill">Prunes bleues (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 350&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Confiture de figues (400 g)" data-price="7">
+        <img src="images/produits/confiture-figues.jpg" alt="Bocal de confiture de figues artisanale">
+        <div class="card-body">
+          <h3>Confiture de figues</h3>
+          <p class="pill">Figues (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 400&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Confiture de prunes blanches (350 g)" data-price="7">
+        <img src="images/produits/confiture-prunes-blanches.jpg" alt="Bocal de confiture de prunes blanches artisanale">
+        <div class="card-body">
+          <h3>Confiture de prunes blanches</h3>
+          <p class="pill">Prunes blanches (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 350&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Confiture de cerises (350 g)" data-price="7">
+        <img src="images/produits/confiture-cerises.jpg" alt="Bocal de confiture de cerises artisanale">
+        <div class="card-body">
+          <h3>Confiture de cerises</h3>
+          <p class="pill">Cerises (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 350&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Gelée de poires (400 g)" data-price="7">
+        <img src="images/produits/gelee-poires.jpg" alt="Bocal de gelée de poires artisanale">
+        <div class="card-body">
+          <h3>Gelée de poires</h3>
+          <p class="pill">Poires (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 400&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Confiture de fraises (350 g)" data-price="7">
+        <img src="images/produits/confiture-fraises.jpg" alt="Bocal de confiture de fraises artisanale">
+        <div class="card-body">
+          <h3>Confiture de fraises</h3>
+          <p class="pill">Fraises (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 350&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Confiture de mûres (400 g)" data-price="7">
+        <img src="images/produits/confiture-mures.jpg" alt="Bocal de confiture de mûres artisanale">
+        <div class="card-body">
+          <h3>Confiture de mûres</h3>
+          <p class="pill">Mûres (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 400&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Gelée de coings (400 g)" data-price="7">
+        <img src="images/produits/gelee-coings.jpg" alt="Bocal de gelée de coings artisanale">
+        <div class="card-body">
+          <h3>Gelée de coings</h3>
+          <p class="pill">Coings (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 400&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Confiture fraises–rhubarbe (400 g)" data-price="7">
+        <img src="images/produits/confiture-fraises-rhubarbe.jpg" alt="Bocal de confiture fraises rhubarbe artisanale">
+        <div class="card-body">
+          <h3>Confiture fraises–rhubarbe</h3>
+          <p class="pill">Fraises (33&nbsp;%), rhubarbe (33&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 400&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Confiture de mirabelles (400 g)" data-price="7">
+        <img src="images/produits/confiture-mirabelles.jpg" alt="Bocal de confiture de mirabelles artisanale">
+        <div class="card-body">
+          <h3>Confiture de mirabelles</h3>
+          <p class="pill">Mirabelles (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 400&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Confiture de rhubarbe (400 g)" data-price="7">
+        <img src="images/produits/confiture-rhubarbe.jpg" alt="Bocal de confiture de rhubarbe artisanale">
+        <div class="card-body">
+          <h3>Confiture de rhubarbe</h3>
+          <p class="pill">Rhubarbe (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 400&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Gelée de pommes (400 g)" data-price="7">
+        <img src="images/produits/gelee-pommes.jpg" alt="Bocal de gelée de pommes artisanale">
+        <div class="card-body">
+          <h3>Gelée de pommes</h3>
+          <p class="pill">Pommes (66&nbsp;%), sucre, agar-agar</p>
+          <p class="pill">Bocal de 400&nbsp;g</p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- JUS -->
+  <section id="jus">
+    <h2>Jus de fruits artisanaux</h2>
+    <p class="section-intro">
+      Jus pressés et pasteurisés, sans sucre ajouté. À boire frais au petit-déjeuner
+      ou pour le goûter.
+    </p>
+
+    <div class="grid">
+      <article class="card" data-product="Jus de pommes (1 L)" data-price="4">
+        <img src="images/produits/jus-pommes.jpg" alt="Bouteille de jus de pommes artisanal 1 litre">
+        <div class="card-body">
+          <h3>Jus de pommes</h3>
+          <p class="pill">Pommes (100&nbsp;%) – sans sucre ajouté</p>
+          <p class="pill">Bouteille de 1&nbsp;L</p>
+          <p class="price">4,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Jus pommes–poires 60/40 (1 L)" data-price="4">
+        <img src="images/produits/jus-pommes-poires-60-40.jpg" alt="Bouteille de jus de pommes poires 60 40">
+        <div class="card-body">
+          <h3>Jus pommes–poires 60&nbsp;/&nbsp;40</h3>
+          <p class="pill">Pommes (60&nbsp;%), poires (40&nbsp;%) – sans sucre ajouté</p>
+          <p class="pill">Bouteille de 1&nbsp;L</p>
+          <p class="price">4,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Jus pommes–poires 80/20 (1 L)" data-price="4">
+        <img src="images/produits/jus-pommes-poires-80-20.jpg" alt="Bouteille de jus de pommes poires 80 20">
+        <div class="card-body">
+          <h3>Jus pommes–poires 80&nbsp;/&nbsp;20</h3>
+          <p class="pill">Pommes (80&nbsp;%), poires (20&nbsp;%) – sans sucre ajouté</p>
+          <p class="pill">Bouteille de 1&nbsp;L</p>
+          <p class="price">4,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- NOIX & APÉRO -->
+  <section id="noix">
+    <h2>Noix gourmandes</h2>
+    <p class="section-intro">
+      Cerneaux de noix de la maison, en versions sucrées ou salées. Parfait pour l’apéro
+      ou à grignoter.<br>
+      <em>(Prix à préciser selon ton choix – pour l’instant ils ne sont pas inclus dans le total.)</em>
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <img src="images/produits/noix-chocolat-lait.jpg" alt="Sachet de cerneaux de noix au chocolat au lait">
+        <div class="card-body">
+          <h3>Cerneaux de noix au chocolat au lait</h3>
+          <p class="pill">Cerneaux de noix, chocolat au lait – sachet de 100&nbsp;g</p>
+          <p class="price">Prix à préciser</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/produits/noix-chocolat-noir.jpg" alt="Sachet de cerneaux de noix au chocolat noir">
+        <div class="card-body">
+          <h3>Cerneaux de noix au chocolat noir</h3>
+          <p class="pill">Cerneaux de noix, chocolat noir – sachet de 100&nbsp;g</p>
+          <p class="price">Prix à préciser</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/produits/noix-herbes-provence.jpg" alt="Sachet de cerneaux de noix aux herbes de Provence">
+        <div class="card-body">
+          <h3>Cerneaux de noix aux herbes de Provence</h3>
+          <p class="pill">Cerneaux de noix, herbes de Provence, huile d’olive, sel – sachet de 100&nbsp;g</p>
+          <p class="price">Prix à préciser</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/produits/noix-tamari.jpg" alt="Sachet de cerneaux de noix au tamari">
+        <div class="card-body">
+          <h3>Cerneaux de noix au tamari</h3>
+          <p class="pill">Cerneaux de noix, tamari – sachet de 100&nbsp;g</p>
+          <p class="price">Prix à préciser</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="images/produits/noix-curry.jpg" alt="Sachet de cerneaux de noix au curry">
+        <div class="card-body">
+          <h3>Cerneaux de noix au curry</h3>
+          <p class="pill">Cerneaux de noix, curry, sel – sachet de 100&nbsp;g</p>
+          <p class="price">Prix à préciser</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- DOUCEURS -->
+  <section id="douceurs">
+    <h2>Douceurs du Jardin</h2>
+    <p class="section-intro">
+      Des gourmandises à offrir ou à s’offrir, préparées avec les fruits du jardin.
+    </p>
+
+    <div class="grid">
+      <article class="card" data-product="Pâtes de fruits (150 g)" data-price="7">
+        <img src="images/produits/pates-de-fruits.jpg" alt="Sachet de pâtes de fruits artisanales assorties">
+        <div class="card-body">
+          <h3>Pâtes de fruits artisanales</h3>
+          <p class="pill">
+            Mélange de fruits (fraise, cerise, poire, pomme, rhubarbe, prunes,
+            reine-claude, coing), sucre, citron, pectine – 150&nbsp;g
+          </p>
+          <p class="price">7,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Cuirs de fruits (150 g)" data-price="10">
+        <img src="images/produits/cuirs-de-fruits.jpg" alt="Rouleaux de cuirs de fruits artisanaux">
+        <div class="card-body">
+          <h3>Cuirs de fruits</h3>
+          <p class="pill">
+            Purée de fruits du jardin lentement séchée – sans gélifiant, sans colorant.
+            Sachet d’environ 150&nbsp;g.
+          </p>
+          <p class="price">10,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- HUILES -->
+  <section id="huiles">
+    <h2>Huiles de noix</h2>
+    <p class="section-intro">
+      Huile de noix artisanale, pressée à froid. Idéale pour les salades, les légumes
+      rôtis ou un simple morceau de pain.
+    </p>
+
+    <div class="grid">
+      <article class="card" data-product="Huile de noix 100 ml" data-price="8">
+        <img src="images/produits/huile-noix-100ml.jpg" alt="Bouteille de 100 ml d'huile de noix artisanale">
+        <div class="card-body">
+          <h3>Huile de noix – 100&nbsp;ml</h3>
+          <p class="pill">Huile de noix 100&nbsp;% – première pression à froid</p>
+          <p class="price">8,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+
+      <article class="card" data-product="Huile de noix 250 ml" data-price="16">
+        <img src="images/produits/huile-noix-250ml.jpg" alt="Bouteille de 250 ml d'huile de noix artisanale">
+        <div class="card-body">
+          <h3>Huile de noix – 250&nbsp;ml</h3>
+          <p class="pill">Huile de noix 100&nbsp;% – première pression à froid</p>
+          <p class="price">16,00 €</p>
+          <div class="card-qty">
+            <label>Quantité :
+              <input type="number" min="0" value="0" class="qty-input">
+            </label>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-secondary add-btn" type="button">Ajouter à la commande</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- RECAP COMMANDE -->
+  <section id="commande">
+    <h2>Votre commande</h2>
+    <div class="commande-box">
+      <div id="commande-liste">
+        <p>Sélectionnez les quantités souhaitées pour chaque produit puis cliquez sur
+          "<strong>Ajouter à la commande</strong>".</p>
+        <ul id="commande-items"></ul>
+        <p class="commande-total">Total estimé : <span id="commande-total">0,00 €</span></p>
+      </div>
+      <div class="commande-actions">
+        <a href="https://revolut.me/avanderstratenwaillet"
+           class="btn-primary" target="_blank" rel="noopener noreferrer">
+          Payer via Revolut
+        </a>
+        <p class="commande-note">
+          Le montant n’est pas pré-rempli dans Revolut&nbsp;: veuillez encoder le
+          <strong>total indiqué ci-dessus</strong> et inscrire, dans la communication,
+          votre nom + "<em>Jardin des Saveurs</em>".<br><br>
+          Vous pouvez aussi envoyer une capture d’écran de ce récapitulatif par e-mail
+          ou message si besoin.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Commander autrement & contact</h2>
+    <div class="contact-box">
       <div>
-        <div class="hero-highlight">
-          🌱 Produits de Sandrine – Rebecq
-        </div>
-        <h1>Des produits 100% naturels, du jardin à votre assiette</h1>
         <p>
-          Sandrine cultive et transforme elle-même ses fruits et légumes :
-          paniers de saison, confitures, pâtes de fruits, cuirs de fruits,
-          noix, épicerie maison… Le tout en direct du Jardin des Saveurs.
+          Si vous préférez, vous pouvez simplement nous envoyer un message avec la liste
+          des produits, les quantités et vos coordonnées. Nous vous confirmerons la
+          disponibilité et le montant total.
         </p>
-        <ul class="hero-list">
-          <li>
-            <span class="icon">✅</span> Sans pesticides de synthèse,
-            uniquement des engrais organiques
-          </li>
-          <li>
-            <span class="icon">🥕</span> Légumes récoltés à maturité, en
-            pleine saison
-          </li>
-          <li>
-            <span class="icon">🍓</span> Produits transformés maison, en
-            petites quantités
-          </li>
-        </ul>
-        <div class="hero-actions">
-          <a href="#commande" class="btn btn-primary">
-            🧺 Commander en ligne
-          </a>
-          <a href="#produits" class="btn btn-outline">
-            Voir les produits
-          </a>
-        </div>
+        <p style="margin-top:0.6rem;">
+          <strong>Sandrine – Le Jardin des Saveurs</strong><br>
+          Rue Marais à Scailles 52, 1430 Rebecq
+        </p>
       </div>
-
-      <div class="hero-image-card">
-        <div class="hero-image">
-          <!-- Tu peux remplacer cette image par une photo de ton potager -->
-          <img
-            src="https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&cs=tinysrgb&w=1200"
-            alt="Légumes du potager"
-          />
-        </div>
-        <div class="hero-caption">
-          Paniers de légumes, confitures, cuirs de fruits, noix… préparés
-          avec les récoltes du Jardin des Saveurs à Rebecq.
-        </div>
+      <div>
+        <p><strong>Par e-mail</strong><br>
+          <a href="mailto:exemple@lejardindessaveurs.be">exemple@lejardindessaveurs.be</a>
+        </p>
+        <p style="margin-top:0.6rem;"><strong>Par téléphone</strong><br>
+          <span>+32 (0)4 XX XX XX XX</span>
+        </p>
+        <p style="margin-top:0.6rem;font-size:0.85rem;">
+          Paiement possible via lien
+          <strong>Revolut</strong> ou par virement bancaire classique.
+        </p>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <!-- INTRO -->
-    <section id="a-propos">
-      <div class="card intro-grid">
-        <div>
-          <h2 class="section-title">Qui est Sandrine ?</h2>
-          <p>
-            Sandrine est maraîchère au <strong>Jardin des Saveurs</strong>, à
-            Rebecq. Elle travaille du semis à la récolte, puis transforme une
-            partie de sa production en confitures, pâtes de fruits, cuirs de
-            fruits, jus, noix aromatisées et autres produits d'épicerie
-            maison.
-          </p>
-          <p>
-            Les cultures ne sont pas certifiées bio, mais elles sont
-            <strong>100% naturelles</strong> : filets anti-insectes,
-            engrais organiques uniquement, aucun pesticide de synthèse.
-          </p>
-          <p>
-            Vous pouvez commander vos produits en ligne et choisir
-            <strong>retrait au jardin</strong> ou
-            <strong>livraison locale</strong> selon votre situation.
-          </p>
-        </div>
-        <div>
-          <p><strong>Ce que vous trouverez ici :</strong></p>
-          <div>
-            <span class="pill">
-              <span class="icon">🧺</span>Paniers de saison
-            </span>
-            <span class="pill">
-              <span class="icon">🍓</span>Confitures &amp; gelées
-            </span>
-            <span class="pill">
-              <span class="icon">🍬</span>Pâtes &amp; cuirs de fruits
-            </span>
-            <span class="pill">
-              <span class="icon">🌰</span>Noix &amp; spécialités
-            </span>
-            <span class="pill">
-              <span class="icon">🫙</span>Épicerie du potager
-            </span>
-            <span class="pill">
-              <span class="icon">🥕</span>Légumes frais
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
+</main>
 
-    <!-- PRODUITS -->
-    <section id="produits">
-      <h2 class="section-title">Les grandes familles de produits</h2>
-      <div class="card">
-        <p>
-          Les disponibilités varient selon la saison et les récoltes. Voici
-          les principales catégories que vous pouvez commander. Indiquez vos
-          choix dans le formulaire plus bas, Sandrine vous confirmera ensuite
-          la composition et le montant exact.
-        </p>
+<footer>
+  © <span id="year"></span> Le Jardin des Saveurs – Potager de Sandrine, Rebecq.
+</footer>
 
-        <div class="products-grid">
-          <!-- Paniers -->
-          <article class="product-card">
-            <div>
-              <div class="product-tag">Paniers de saison</div>
-              <div class="product-title">
-                Panier de saison – Taille M (2–3 personnes)
-              </div>
-              <p class="product-desc">
-                Un assortiment de légumes de saison du Jardin des Saveurs
-                (par ex. carottes, poireaux, salades, courges, betteraves,
-                aromatiques…). La composition varie selon la récolte.
-              </p>
-            </div>
-            <div class="product-meta">
-              <span class="price">Prix indicatif à définir</span>
-              <span class="note">Composition ajustée selon vos goûts.</span>
-            </div>
-          </article>
+<script>
+  // Année automatique
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-          <!-- Confitures -->
-          <article class="product-card">
-            <div>
-              <div class="product-tag">Confitures &amp; gelées</div>
-              <div class="product-title">
-                Confiture maison – Pot 400 g
-              </div>
-              <p class="product-desc">
-                Confitures cuites en petites quantités avec les fruits du
-                jardin : fraise, fraise-rhubarbe, prune, fruits rouges…
-                Sucre ajusté pour garder le goût du fruit.
-              </p>
-            </div>
-            <div class="product-meta">
-              <span class="price">≈ 7 € / pot (exemple)</span>
-              <span class="note">Saveurs selon la saison.</span>
-            </div>
-          </article>
+  // Gestion de la commande
+  const cards = document.querySelectorAll(".card[data-product]");
+  const itemsList = document.getElementById("commande-items");
+  const totalSpan = document.getElementById("commande-total");
 
-          <!-- Pâtes & cuirs de fruits -->
-          <article class="product-card">
-            <div>
-              <div class="product-tag">Pâtes &amp; cuirs de fruits</div>
-              <div class="product-title">
-                Pâtes &amp; cuirs de fruits – Sachet 150 g
-              </div>
-              <p class="product-desc">
-                100% fruits du verger, séchés à basse température, avec peu
-                ou pas de sucre ajouté selon la recette. Idéal pour les
-                goûters, les randonnées et les enfants.
-              </p>
-            </div>
-            <div class="product-meta">
-              <span class="price">Prix indicatif à définir</span>
-              <span class="note">Cerise, prune bleue, et autres selon récolte.</span>
-            </div>
-          </article>
+  const commande = {}; // { product: { qty, price } }
 
-          <!-- Noix -->
-          <article class="product-card">
-            <div>
-              <div class="product-tag">Noix &amp; spécialités</div>
-              <div class="product-title">
-                Cerneaux de noix – nature ou parfumés
-              </div>
-              <p class="product-desc">
-                Noix du jardin, cassées et triées à la main. Cerneaux
-                nature, salés, aux épices ou enrobés de chocolat (selon
-                la production).
-              </p>
-            </div>
-            <div class="product-meta">
-              <span class="price">Prix indicatif à définir</span>
-              <span class="note">Vendus au poids ou en sachets.</span>
-            </div>
-          </article>
+  function formatEuro(value) {
+    return value.toFixed(2).replace(".", ",") + " €";
+  }
 
-          <!-- Épicerie -->
-          <article class="product-card">
-            <div>
-              <div class="product-tag">Épicerie du potager</div>
-              <div class="product-title">
-                Paprika, gingembre &amp; autres poudres
-              </div>
-              <p class="product-desc">
-                Poudres de légumes et racines (paprika, gingembre, …)
-                issues des récoltes du jardin, séchées et moulues à la
-                ferme. Parfait pour relever vos plats.
-              </p>
-            </div>
-            <div class="product-meta">
-              <span class="price">Prix indicatif à définir</span>
-              <span class="note">Conditionnement au choix.</span>
-            </div>
-          </article>
+  function updateSummary() {
+    itemsList.innerHTML = "";
+    let total = 0;
 
-          <!-- Légumes -->
-          <article class="product-card">
-            <div>
-              <div class="product-tag">Légumes frais</div>
-              <div class="product-title">
-                Légumes au détail ou au kilo
-              </div>
-              <p class="product-desc">
-                Potimarrons, courges, pommes de terre, carottes, poireaux,
-                oignons, salades, etc. cultivés à Rebecq, disponibles au
-                détail ou intégrés dans les paniers.
-              </p>
-            </div>
-            <div class="product-meta">
-              <span class="price">Prix au kilo à définir</span>
-              <span class="note">Selon la saison et les stocks.</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    Object.keys(commande).forEach((product) => {
+      const item = commande[product];
+      if (item.qty > 0) {
+        const li = document.createElement("li");
+        const sousTotal = item.qty * item.price;
+        total += sousTotal;
+        li.textContent = `${item.qty} × ${product} – ${formatEuro(sousTotal)}`;
+        itemsList.appendChild(li);
+      }
+    });
 
-    <!-- COMMENT COMMANDER -->
-    <section id="comment-commander">
-      <div class="card">
-        <h2 class="section-title">Comment ça fonctionne ?</h2>
-        <ul class="howto-list">
-          <li>
-            <span class="howto-badge">1</span>
-            <div>
-              <strong>Choisissez vos produits</strong><br />
-              Repérez les catégories qui vous intéressent : paniers,
-              confitures, cuirs de fruits, noix, légumes, etc.
-            </div>
-          </li>
-          <li>
-            <span class="howto-badge">2</span>
-            <div>
-              <strong>Remplissez le formulaire de commande</strong><br />
-              Indiquez les produits souhaités, les quantités, ainsi que
-              votre préférence : retrait au Jardin des Saveurs ou
-              livraison locale.
-            </div>
-          </li>
-          <li>
-            <span class="howto-badge">3</span>
-            <div>
-              <strong>Vous recevez une confirmation</strong><br />
-              Sandrine vous répond par e-mail pour confirmer la
-              disponibilité, le montant total et les modalités de
-              paiement (virement, lien de paiement, etc.).
-            </div>
-          </li>
-          <li>
-            <span class="howto-badge">4</span>
-            <div>
-              <strong>Retrait ou livraison</strong><br />
-              Vous venez chercher votre commande au jardin à Rebecq, ou
-              vous fixez un créneau de livraison si vous êtes dans la
-              zone couverte.
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+    totalSpan.textContent = formatEuro(total);
+    if (total === 0) {
+      itemsList.innerHTML = "";
+    }
+  }
 
-    <!-- FORMULAIRE DE COMMANDE -->
-    <section id="commande">
-      <div class="card">
-        <h2 class="section-title">Passer commande</h2>
-        <p>
-          Remplissez ce formulaire avec vos coordonnées et la liste de vos
-          souhaits. Un e-mail pré-rempli s’ouvrira avec le récapitulatif de
-          votre commande. Il ne vous restera plus qu’à cliquer sur “Envoyer”.
-        </p>
+  cards.forEach((card) => {
+    const product = card.dataset.product;
+    const price = parseFloat(card.dataset.price);
+    const qtyInput = card.querySelector(".qty-input");
+    const addBtn = card.querySelector(".add-btn");
 
-        <!-- IMPORTANT : remplace l'adresse e-mail ci-dessous si besoin -->
-        <form id="order-form">
-          <div class="form-row">
-            <div>
-              <label for="name">Nom et prénom</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Votre nom"
-                required
-              />
-            </div>
-            <div>
-              <label for="email">Adresse e-mail</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="vous@example.com"
-                required
-              />
-            </div>
-          </div>
+    if (!qtyInput || !addBtn) return;
 
-          <div class="form-row">
-            <div>
-              <label for="phone">Téléphone</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="+32..."
-              />
-              <div class="form-help">
-                Pour vous contacter facilement en cas de question.
-              </div>
-            </div>
-            <div>
-              <label for="mode">Mode souhaité</label>
-              <select id="mode" name="mode" required>
-                <option value="">Sélectionnez une option</option>
-                <option value="retrait">
-                  Retrait au Jardin des Saveurs (Rebecq)
-                </option>
-                <option value="livraison">
-                  Livraison locale (si disponible)
-                </option>
-                <option value="a-discuter">
-                  À discuter avec Sandrine
-                </option>
-              </select>
-            </div>
-          </div>
+    addBtn.addEventListener("click", () => {
+      const qty = parseInt(qtyInput.value, 10) || 0;
+      if (!commande[product]) {
+        commande[product] = { qty: 0, price };
+      }
+      commande[product].qty = qty;
+      updateSummary();
+    });
+  });
+</script>
 
-          <label for="order-details">Votre commande</label>
-          <textarea
-            id="order-details"
-            name="order-details"
-            placeholder="Exemple : 
-– 1 panier de saison taille M
-– 2 pots de confiture de fraise (400 g)
-– 1 sachet de cuirs de fruits à la cerise (150 g)
-– 1 kg de potimarron"
-            required
-          ></textarea>
-          <div class="form-help">
-            Indiquez les produits, quantités, saveurs souhaitées et
-            éventuelles remarques (allergies, légumes à éviter, etc.).
-          </div>
-
-          <label for="message">Message complémentaire (optionnel)</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Précisions sur vos disponibilités, préférences de retrait ou de livraison, etc."
-          ></textarea>
-
-          <div class="form-footer">
-            <button type="submit" class="btn btn-primary">
-              📧 Générer l’e-mail de commande
-            </button>
-            <div class="form-note">
-              Le bouton ouvre votre logiciel de messagerie avec un e-mail
-              pré-rempli. Vérifiez le contenu puis cliquez sur “Envoyer”.
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="card">
-        <h2 class="section-title">Contact & informations pratiques</h2>
-        <p>
-          <strong>Le Jardin des Saveurs – Produits de Sandrine</strong><br />
-          Rebecq, Brabant wallon, Belgique
-        </p>
-        <p style="margin-top: 0.5rem;">
-          E-mail :
-          <a href="mailto:arnaudvanderstraten@gmail.com">
-            arnaudvanderstraten@gmail.com
-          </a>
-          <!-- Tu peux changer cet e-mail si tu veux -->
-        </p>
-        <p>
-          Pour des questions spécifiques (gros volumes, événements,
-          demandes particulières), n’hésitez pas à envoyer un e-mail ou
-          à ajouter un message dans le formulaire de commande.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    &copy; <span id="year"></span> Le Jardin des Saveurs – Produits de
-    Sandrine. Site statique hébergé sur GitHub Pages.
-  </footer>
-
-  <script>
-    // Met automatiquement l'année en bas de page
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    // Gestion du formulaire : création d'un mailto:
-    document
-      .getElementById("order-form")
-      .addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const mode = document.getElementById("mode").value;
-        const orderDetails = document
-          .getElementById("order-details")
-          .value.trim();
-        const message = document
-          .getElementById("message")
-          .value.trim();
-
-        // ⚠️ Change cette adresse si tu veux une autre destination
-        const to = "arnaudvanderstraten@gmail.com";
-
-        const subject =
-          "Commande – Le Jardin des Saveurs (Produits de Sandrine)";
-
-        let body = "Bonjour Sandrine,%0D%0A%0D%0A";
-        body +=
-          "Je souhaite passer une commande avec les détails suivants :%0D%0A%0D%0A";
-        body += "Nom : " + name + "%0D%0A";
-        body += "E-mail : " + email + "%0D%0A";
-        if (phone) {
-          body += "Téléphone : " + phone + "%0D%0A";
-        }
-        if (mode) {
-          body += "Mode souhaité : " + mode + "%0D%0A";
-        }
-        body += "%0D%0A--- Détails de la commande --- %0D%0A";
-        body += orderDetails.replace(/\n/g, "%0D%0A") + "%0D%0A";
-
-        if (message) {
-          body += "%0D%0A--- Message complémentaire --- %0D%0A";
-          body += message.replace(/\n/g, "%0D%0A") + "%0D%0A";
-        }
-
-        body +=
-          "%0D%0AMerci d'avance pour votre retour sur la disponibilité, le montant total et les modalités de paiement.%0D%0A";
-        body += "Belle journée,%0D%0A";
-        body += encodeURIComponent(name);
-
-        const mailtoLink =
-          "mailto:" +
-          encodeURIComponent(to) +
-          "?subject=" +
-          encodeURIComponent(subject) +
-          "&body=" +
-          body;
-
-        window.location.href = mailtoLink;
-      });
-  </script>
 </body>
 </html>
