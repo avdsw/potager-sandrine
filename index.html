@@ -5,132 +5,153 @@
   <title>Le Jardin des Saveurs – Potager de Sandrine</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --fond: #faf5ee;
-      --vert: #4a7c59;
-      --vert-clair: #77a37b;
-      --accent: #d98a4b;
-      --texte: #333;
-      --blanc: #fff;
-      --ombre: 0 10px 25px rgba(0,0,0,0.08);
-      --rayon: 18px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:var(--fond);
-      color:var(--texte);
-      line-height:1.5;
-    }
-    img{max-width:100%;display:block;}
-    header{
-      background:linear-gradient(135deg,rgba(74,124,89,0.7),rgba(217,138,75,0.6));
-      color:var(--blanc);
-      padding:2.5rem 1.5rem 2.5rem;
-    }
-    .hero-inner{max-width:1100px;margin:0 auto;}
-    header h1{font-size:clamp(2.1rem,3vw,2.7rem);margin-bottom:.4rem;}
-    header p{max-width:38rem;font-size:.98rem;margin-bottom:.8rem;}
-    .badge-row{display:flex;flex-wrap:wrap;gap:.5rem;}
-    .badge{
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.7);
-      padding:.2rem .7rem;
-      font-size:.75rem;
-      background:rgba(0,0,0,.18);
-    }
-    main{max-width:1100px;margin:0 auto;padding:2.2rem 1.5rem 3.5rem;}
-    h2{font-size:1.6rem;margin-bottom:.4rem;color:var(--vert);}
-    .section-intro{font-size:.95rem;margin-bottom:1.4rem;max-width:40rem;}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:1.5rem;
-      margin-bottom:2.4rem;
-    }
-    .card{
-      background:var(--blanc);
-      border-radius:var(--rayon);
-      overflow:hidden;
-      box-shadow:var(--ombre);
-      display:flex;
-      flex-direction:column;
-    }
-    .card img{height:210px;object-fit:cover;}
-    .card-body{
-      padding:1rem 1.1rem .9rem;
-      display:flex;
-      flex-direction:column;
-      gap:.3rem;
-      flex:1;
-    }
-    .card-body h3{font-size:1.05rem;color:var(--vert);}
-    .card-body p{font-size:.9rem;}
-    .pill{font-size:.8rem;color:#666;}
-    .price{font-weight:600;color:var(--accent);font-size:.95rem;margin-top:.05rem;}
-    .card-qty{margin-top:.4rem;font-size:.85rem;}
-    .card-qty input{
-      width:70px;
-      padding:.2rem .4rem;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.2);
-      font-size:.85rem;
-      margin-left:.3rem;
-      text-align:center;
-      background:#fdfaf6;
-    }
-    #commande{margin-top:1.5rem;}
-    .commande-box{
-      background:#f5f0e6;
-      border-radius:var(--rayon);
-      padding:1.4rem 1.5rem;
-      box-shadow:var(--ombre);
-      font-size:.9rem;
-    }
-    #commande-items{
-      list-style:none;
-      margin:.6rem 0;
-      max-height:260px;
-      overflow-y:auto;
-      padding-left:0;
-    }
-    #commande-items li{margin-bottom:.25rem;}
-    .commande-total{font-weight:700;color:var(--vert);margin-bottom:.8rem;}
-    .commande-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.8rem;
-      align-items:center;
-    }
-    .btn-primary{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:.6rem 1.4rem;
-      border-radius:999px;
-      font-size:.9rem;
-      font-weight:600;
-      cursor:pointer;
-      border:none;
-      background:var(--vert);
-      color:var(--blanc);
-      box-shadow:0 6px 18px rgba(0,0,0,.16);
-      transition:transform .1s ease,box-shadow .1s ease,background .1s ease;
-    }
-    .btn-primary:hover{background:var(--vert-clair);transform:translateY(-1px);}
-    .commande-note{font-size:.8rem;max-width:32rem;}
-    footer{
-      border-top:1px solid rgba(0,0,0,.06);
-      padding:1rem 1.5rem 2rem;
-      font-size:.8rem;
-      text-align:center;
-      color:#777;
-    }
-    @media(max-width:600px){
-      main{padding-inline:1rem;}
-      header{padding-inline:1rem;}
-    }
-  </style>
+  :root {
+    --fond: #faf5ee;
+    --vert: #4a7c59;
+    --vert-clair: #77a37b;
+    --accent: #d98a4b;
+    --texte: #333;
+    --blanc: #fff;
+    --ombre: 0 6px 16px rgba(0,0,0,0.08);
+    --rayon: 12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--fond);
+    color:var(--texte);
+    line-height:1.4;
+  }
+  img{max-width:100%;display:block;}
+
+  header{
+    background:linear-gradient(135deg,rgba(74,124,89,0.7),rgba(217,138,75,0.6));
+    color:var(--blanc);
+    padding:1.8rem 1rem 1.8rem;
+  }
+  .hero-inner{max-width:1300px;margin:0 auto;}
+  header h1{font-size:clamp(1.9rem,2.4vw,2.4rem);margin-bottom:.3rem;}
+  header p{max-width:40rem;font-size:.9rem;margin-bottom:.6rem;}
+  .badge-row{display:flex;flex-wrap:wrap;gap:.4rem;}
+  .badge{
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.7);
+    padding:.15rem .6rem;
+    font-size:.7rem;
+    background:rgba(0,0,0,.18);
+  }
+
+  main{
+    max-width:1300px;
+    margin:0 auto;
+    padding:1.6rem 1rem 2.4rem;
+  }
+  h2{font-size:1.3rem;margin-bottom:.3rem;color:var(--vert);}
+  .section-intro{font-size:.85rem;margin-bottom:1rem;max-width:40rem;}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:.9rem;
+    margin-bottom:1.6rem;
+  }
+
+  .card{
+    background:var(--blanc);
+    border-radius:var(--rayon);
+    overflow:hidden;
+    box-shadow:var(--ombre);
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* >>> pour voir les pots / bouteilles / sachets EN ENTIER <<< */
+  .card img{
+    width:100%;
+    height:auto;
+    max-height:220px;          /* limite la hauteur pour garder des cartes petites */
+    object-fit:contain;        /* plus de recadrage : on voit tout le pot / sachet */
+    background:#fff;
+    padding:.3rem .3rem .1rem; /* un peu d’air autour du produit */
+  }
+
+  .card-body{
+    padding:.6rem .7rem .6rem;
+    display:flex;
+    flex-direction:column;
+    gap:.2rem;
+    flex:1;
+  }
+  .card-body h3{font-size:.95rem;color:var(--vert);}
+  .card-body p{font-size:.8rem;}
+  .pill{font-size:.75rem;color:#666;}
+  .price{font-weight:600;color:var(--accent);font-size:.85rem;margin-top:.05rem;}
+  .card-qty{margin-top:.25rem;font-size:.8rem;}
+  .card-qty input{
+    width:60px;
+    padding:.15rem .35rem;
+    border-radius:999px;
+    border:1px solid rgba(0,0,0,.2);
+    font-size:.8rem;
+    margin-left:.25rem;
+    text-align:center;
+    background:#fdfaf6;
+  }
+
+  #commande{margin-top:1rem;}
+  .commande-box{
+    background:#f5f0e6;
+    border-radius:var(--rayon);
+    padding:1rem 1.1rem;
+    box-shadow:var(--ombre);
+    font-size:.85rem;
+  }
+  #commande-items{
+    list-style:none;
+    margin:.5rem 0;
+    max-height:220px;
+    overflow-y:auto;
+    padding-left:0;
+  }
+  #commande-items li{margin-bottom:.2rem;}
+  .commande-total{font-weight:700;color:var(--vert);margin-bottom:.6rem;}
+  .commande-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem;
+    align-items:center;
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:.45rem 1.2rem;
+    border-radius:999px;
+    font-size:.85rem;
+    font-weight:600;
+    cursor:pointer;
+    border:none;
+    background:var(--vert);
+    color:var(--blanc);
+    box-shadow:0 4px 12px rgba(0,0,0,.16);
+    transition:transform .1s ease,box-shadow .1s ease,background .1s ease;
+  }
+  .btn-primary:hover{background:var(--vert-clair);transform:translateY(-1px);}
+  .commande-note{font-size:.75rem;max-width:32rem;}
+
+  footer{
+    border-top:1px solid rgba(0,0,0,.06);
+    padding:.8rem 1rem 1.4rem;
+    font-size:.75rem;
+    text-align:center;
+    color:#777;
+  }
+
+  @media(max-width:600px){
+    main{padding-inline:.8rem;}
+    header{padding-inline:.8rem;}
+  }
+</style>
 </head>
 <body>
 
