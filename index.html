@@ -20,8 +20,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--fond)
-        url("fond-jardin.jpg") center/cover fixed no-repeat; /* optionnel : image de fond */
+      background: #f4efe5 url("IMG_3330.jpg") center/cover fixed no-repeat; /* fond avec ta photo de jus */
       color: var(--texte);
       line-height: 1.4;
     }
@@ -31,7 +30,7 @@
     /* HERO AVEC DIAPORAMA */
     .hero {
       position: relative;
-      min-height: 210px;
+      min-height: 220px;
       background: #000;
       color: var(--blanc);
       overflow: hidden;
@@ -52,6 +51,7 @@
       background-position: center;
       background-repeat: no-repeat;
       transition: opacity 0.8s ease-in-out;
+      opacity: 1;
     }
 
     .hero-bg.hidden {
@@ -128,7 +128,7 @@
       flex-direction: column;
     }
 
-    /* On veut voir les pots / bouteilles / sachets ENTIEREMENT */
+    /* on veut voir les pots / bouteilles / sachets ENTIEREMENT */
     .card img {
       width: 100%;
       height: auto;
@@ -224,6 +224,18 @@
       background: #fff;
     }
 
+    .delivery-options {
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+    }
+
+    .delivery-options label {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 1.2rem;
+      gap: 0.25rem;
+    }
+
     #commande-items {
       list-style: none;
       margin: 0.5rem 0;
@@ -239,7 +251,8 @@
     .commande-total {
       font-weight: 700;
       color: var(--vert);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.9rem;
     }
 
     .commande-actions {
@@ -247,6 +260,7 @@
       flex-wrap: wrap;
       gap: 0.6rem;
       align-items: center;
+      margin-top: 0.4rem;
     }
 
     .btn-primary {
@@ -287,12 +301,13 @@
     @media (max-width: 600px) {
       main { padding-inline: 0.8rem; }
       .hero-inner { padding-inline: 0.8rem; }
+      .delivery-options label { margin-bottom: 0.2rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- HERO AVEC DIAPORAMA -->
+<!-- HERO AVEC DIAPORAMA (avec TES PHOTOS) -->
 <header class="hero">
   <div id="hero-bg-a" class="hero-bg"></div>
   <div id="hero-bg-b" class="hero-bg hidden"></div>
@@ -317,7 +332,7 @@
     <h2>Nos produits</h2>
     <p class="section-intro">
       Indiquez les quantités pour chaque bocal, bouteille ou sachet. Le total est calculé
-      automatiquement en bas de page. Les prix sont TTC, à venir chercher au Jardin des Saveurs.
+      automatiquement en bas de page. Les prix sont TTC.
     </p>
 
     <div class="grid">
@@ -598,7 +613,7 @@
         </div>
       </article>
 
-      <!-- 3339 : cuirs de fruits (DNG – tu peux le convertir en JPG) -->
+      <!-- 3339 : cuirs de fruits (à convertir idéalement en JPG) -->
       <article class="card" data-product="Cuirs de fruits (150 g)" data-price="10">
         <img src="IMG_3339.DNG" alt="Cuirs de fruits artisanaux">
         <div class="card-body">
@@ -674,12 +689,28 @@
             <label for="client-email">Adresse e-mail</label>
             <input type="email" id="client-email" required>
           </div>
+          <div class="field">
+            <label>Mode de réception</label>
+            <div class="delivery-options">
+              <label>
+                <input type="radio" name="delivery" value="retrait" checked>
+                Retrait au Jardin des Saveurs
+              </label>
+              <label>
+                <input type="radio" name="delivery" value="livraison">
+                Livraison (+5,00 €)
+              </label>
+            </div>
+          </div>
         </div>
       </form>
 
       <p>Récapitulatif :</p>
       <ul id="commande-items"></ul>
-      <p class="commande-total">Total estimé : <span id="commande-total">0,00 €</span></p>
+
+      <p class="commande-total">Total produits : <span id="total-produits">0,00 €</span></p>
+      <p class="commande-total">Frais de livraison : <span id="total-livraison">0,00 €</span></p>
+      <p class="commande-total">Total à payer : <span id="total-global">0,00 €</span></p>
 
       <div class="commande-actions">
         <button type="button" id="btn-payer" class="btn-primary">
@@ -688,8 +719,9 @@
         <p class="commande-note">
           En cliquant sur le bouton, un e-mail récapitulatif de votre commande nous est envoyé,
           puis Revolut s’ouvre pour le paiement.<br>
-          Merci d’encoder ce montant dans Revolut et de mettre en communication :
-          <em>« Jardin des Saveurs + votre nom »</em>.<br>
+          Merci d’encoder ce montant dans Revolut
+          (<strong>incluant les 5&nbsp;€ de livraison si vous l’avez cochée</strong>) et de mettre en
+          communication : <em>« Jardin des Saveurs + votre nom »</em>.<br>
           Les noix gourmandes marquées « prix à préciser » ne sont pas incluses dans le total automatique,
           nous confirmerons ces montants avec vous.
         </p>
@@ -714,13 +746,13 @@
   // Année automatique
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // DIAPORAMA DE FOND (terre / potager / jardinage)
+  // DIAPORAMA DE FOND (avec TES photos)
   const heroImages = [
-    "jardin1.jpg",
-    "jardin2.jpg",
-    "jardin3.jpg",
-    "jardin4.jpg"
-  ]; // ajoute ces fichiers dans ton dépôt
+    "IMG_3330.jpg", // jus
+    "IMG_3318.jpg", // confiture
+    "IMG_3335.jpg", // noix
+    "IMG_3340.jpg"  // pâtes de fruits
+  ];
 
   let currentHero = 0;
   const bgA = document.getElementById("hero-bg-a");
@@ -756,21 +788,40 @@
   // GESTION COMMANDE
   const cards = document.querySelectorAll(".card[data-product]");
   const itemsList = document.getElementById("commande-items");
-  const totalSpan = document.getElementById("commande-total");
+
+  const totalProduitsSpan = document.getElementById("total-produits");
+  const totalLivraisonSpan = document.getElementById("total-livraison");
+  const totalGlobalSpan = document.getElementById("total-global");
 
   const commande = {}; // { nomProduit: { qty, price } }
+  let currentProductsTotal = 0;
+  let currentGrandTotal = 0;
   let currentSummaryText = "";
-  let currentTotal = 0;
 
   function formatEuro(val) {
     return val.toFixed(2).replace(".", ",") + " €";
   }
 
+  function getDeliveryFee() {
+    const deliveryRadio = document.querySelector('input[name="delivery"]:checked');
+    if (deliveryRadio && deliveryRadio.value === "livraison") {
+      return 5;
+    }
+    return 0;
+  }
+
+  function getDeliveryModeLabel() {
+    const deliveryRadio = document.querySelector('input[name="delivery"]:checked');
+    if (deliveryRadio && deliveryRadio.value === "livraison") {
+      return "Livraison (supplément 5,00 €)";
+    }
+    return "Retrait au Jardin des Saveurs";
+  }
+
   function updateSummary() {
     itemsList.innerHTML = "";
-    currentSummaryText = "";
+    const lines = [];
     let total = 0;
-    const summaryLines = [];
 
     Object.keys(commande).forEach((product) => {
       const item = commande[product];
@@ -781,21 +832,26 @@
           total += sousTotal;
           const line = `${item.qty} × ${product} – ${formatEuro(sousTotal)}`;
           li.textContent = line;
-          summaryLines.push(line);
+          lines.push(line);
         } else {
           const line = `${item.qty} × ${product} – prix à préciser`;
           li.textContent = line;
-          summaryLines.push(line);
+          lines.push(line);
         }
         itemsList.appendChild(li);
       }
     });
 
-    currentTotal = total;
-    currentSummaryText = summaryLines.join("\n");
+    currentProductsTotal = total;
+    const deliveryFee = getDeliveryFee();
+    currentGrandTotal = total + deliveryFee;
+    currentSummaryText = lines.join("\n");
 
-    totalSpan.textContent = formatEuro(total);
-    if (total === 0 && summaryLines.length === 0) {
+    totalProduitsSpan.textContent = formatEuro(total);
+    totalLivraisonSpan.textContent = formatEuro(deliveryFee);
+    totalGlobalSpan.textContent = formatEuro(currentGrandTotal);
+
+    if (lines.length === 0) {
       itemsList.innerHTML = "";
     }
   }
@@ -814,6 +870,14 @@
     });
   });
 
+  // Recalcul quand on change livraison / retrait
+  document.querySelectorAll('input[name="delivery"]').forEach((radio) => {
+    radio.addEventListener("change", updateSummary);
+  });
+
+  // Init totaux
+  updateSummary();
+
   // Envoi EmailJS + ouverture Revolut
   const btnPayer = document.getElementById("btn-payer");
 
@@ -827,18 +891,39 @@
       return;
     }
 
-    if (currentTotal <= 0 && !currentSummaryText) {
+    // On s'assure que le récap est bien frais
+    updateSummary();
+
+    if (!currentSummaryText) {
       alert("Merci de sélectionner au moins un produit avant de passer commande.");
       return;
     }
+
+    const deliveryFee = getDeliveryFee();
+    const deliveryMode = getDeliveryModeLabel();
+
+    const detailsLines = [];
+    detailsLines.push(`Client : ${firstname} ${lastname} <${email}>`);
+    detailsLines.push(`Mode de réception : ${deliveryMode}`);
+    detailsLines.push("");
+    detailsLines.push("Détails de la commande :");
+    detailsLines.push(currentSummaryText);
+    detailsLines.push("");
+    detailsLines.push(`Total produits : ${formatEuro(currentProductsTotal)}`);
+    detailsLines.push(`Frais de livraison : ${formatEuro(deliveryFee)}`);
+    detailsLines.push(`Total à payer : ${formatEuro(currentGrandTotal)}`);
+
+    const orderDetailsText = detailsLines.join("\n");
 
     const params = {
       client_firstname: firstname,
       client_lastname: lastname,
       client_email: email,
-      order_total: formatEuro(currentTotal),
-      order_raw_total: currentTotal.toFixed(2),
-      order_details: currentSummaryText || "(commande sans montant automatique)"
+      delivery_mode: deliveryMode,
+      delivery_fee: deliveryFee.toFixed(2),
+      order_products_total: currentProductsTotal.toFixed(2),
+      order_grand_total: currentGrandTotal.toFixed(2),
+      order_details: orderDetailsText
     };
 
     btnPayer.disabled = true;
