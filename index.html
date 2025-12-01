@@ -5,7 +5,6 @@
   <title>Le potager de Sandrine – Commandes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Styles -->
   <style>
     * {
       box-sizing: border-box;
@@ -20,9 +19,11 @@
       color: #243024;
     }
 
+    /* ----- HERO + DIAPORAMA ----- */
     .hero {
       position: relative;
-      height: 260px;
+      height: 75vh;            /* 3/4 de la hauteur d’écran */
+      min-height: 260px;
       overflow: hidden;
       border-bottom: 4px solid #d6e2c2;
     }
@@ -83,6 +84,7 @@
       margin-bottom: 0.35rem;
     }
 
+    /* ----- PRODUITS ----- */
     .products {
       margin-bottom: 2rem;
     }
@@ -106,7 +108,7 @@
     .product-card img {
       width: 100%;
       height: 170px;
-      object-fit: contain; /* pour voir les pots/bouteilles/sachets en entier */
+      object-fit: contain;  /* pour voir les pots / bouteilles / sachets en entier */
       background: #f7f3eb;
       border-radius: 8px;
       border: 1px solid #e1d8c8;
@@ -143,6 +145,7 @@
       text-align: right;
     }
 
+    /* ----- COMMANDE ----- */
     .order {
       background: #ffffffd9;
       border-radius: 12px;
@@ -249,7 +252,7 @@
 
     @media (max-width: 600px) {
       .hero {
-        height: 220px;
+        height: 65vh;
       }
       .hero-overlay {
         align-items: center;
@@ -268,9 +271,7 @@
   </script>
   <script type="text/javascript">
     (function () {
-      emailjs.init({
-        publicKey: "xtM2H9PprxWX1IWnr",
-      });
+      emailjs.init({ publicKey: "xtM2H9PprxWX1IWnr" });
     })();
   </script>
 </head>
@@ -291,7 +292,7 @@
   <main class="container">
     <section class="intro">
       <p>Choisissez vos produits ci-dessous, indiquez les quantités et complétez vos coordonnées.</p>
-      <p>Vous recevrez un récapitulatif par email, puis vous serez redirigé vers Revolut pour le paiement sécurisé.</p>
+      <p>Vous recevrez un récapitulatif par email, puis vous serez redirigé vers la page de paiement Revolut (carte ou Revolut).</p>
     </section>
 
     <!-- PRODUITS -->
@@ -466,7 +467,7 @@
           </div>
         </div>
 
-        <!-- Noix – prix au sachet -->
+        <!-- Noix – 7 € -->
         <div class="product-card" data-name="Cerneaux de noix au chocolat au lait" data-price="7">
           <img src="IMG_3333.jpg" alt="Cerneaux de noix au chocolat au lait" />
           <h3>Cerneaux de noix au chocolat au lait</h3>
@@ -534,7 +535,7 @@
           </div>
         </div>
 
-        <!-- Cuirs de fruits – 10 € (photo à ajouter plus tard) -->
+        <!-- Cuirs de fruits – 10 € -->
         <div class="product-card" data-name="Cuirs de fruits" data-price="10">
           <img src="cuirs-fruits.jpg" alt="Cuirs de fruits artisanaux" />
           <h3>Cuirs de fruits</h3>
@@ -546,7 +547,7 @@
           </div>
         </div>
 
-        <!-- Huiles de noix – 8 € & 16 € (photos à ajouter quand tu veux) -->
+        <!-- Huiles de noix – 8 € & 16 € -->
         <div class="product-card" data-name="Huile de noix 100 ml" data-price="8">
           <img src="huile-noix-100.jpg" alt="Huile de noix 100 ml" />
           <h3>Huile de noix 100 ml</h3>
@@ -587,7 +588,7 @@
           </div>
           <div>
             <label for="customer-message">Message (optionnel)</label>
-            <textarea id="customer-message" placeholder="Ajoutez un commentaire, créneau souhaité, etc."></textarea>
+            <textarea id="customer-message" placeholder="Créneau souhaité, infos livraison…"></textarea>
           </div>
         </div>
 
@@ -619,7 +620,7 @@
         </div>
 
         <button type="button" class="pay-btn" id="pay-button">
-          💳 Commander & payer avec Revolut
+          Commander et payer
         </button>
 
         <p id="status-message" class="status-message"></p>
@@ -631,14 +632,13 @@
     Le Jardin des Saveurs – Rue Marais à Scailles 52, 1430 Rebecq
   </footer>
 
-  <!-- SCRIPT PRINCIPAL -->
   <script>
-    // --- DIAPORAMA DE FOND ---
+    /* ----- DIAPORAMA HERO ----- */
     const heroImages = [
-      "IMG_3330.jpg", // jus de pommes
-      "IMG_3331.jpg", // jus pommes-poires
-      "IMG_3340.jpg", // pâtes de fruits
-      "IMG_3318.jpg"  // confiture de prunes bleues
+      "IMG_3330.jpg",
+      "IMG_3331.jpg",
+      "IMG_3340.jpg",
+      "IMG_3318.jpg"
     ];
 
     const heroEl = document.querySelector(".hero-slideshow");
@@ -661,7 +661,7 @@
       }, 5000);
     }
 
-    // --- GESTION DU PANIER ---
+    /* ----- PANIER & TOTAUX ----- */
     const productCards = document.querySelectorAll(".product-card");
     const subtotalSpan = document.getElementById("subtotal");
     const deliveryFeeSpan = document.getElementById("delivery-fee");
@@ -709,7 +709,7 @@
 
     updateTotals();
 
-    // --- PAIEMENT + EMAILJS ---
+    /* ----- PAIEMENT + EMAILJS ----- */
     const payButton = document.getElementById("pay-button");
     const statusMessage = document.getElementById("status-message");
 
@@ -733,7 +733,6 @@
         return;
       }
 
-      // Texte de récapitulatif
       const recapLines = items.map((item) =>
         `- ${item.name} x${item.qty} = ${item.lineTotal.toFixed(2)} €`
       );
@@ -760,7 +759,11 @@
         subtotal: subtotal.toFixed(2),
         delivery_fee: deliveryFee.toFixed(2),
         total: total.toFixed(2),
-        recap_text: recapText
+        recap_text: recapText,
+        // champs standards EmailJS
+        from_name: name,
+        reply_to: email,
+        message: recapText
       };
 
       statusMessage.textContent = "Envoi de votre commande...";
@@ -768,27 +771,16 @@
       try {
         await emailjs.send("service_5yw7g4q", "template_hyc543e", templateParams);
         statusMessage.textContent =
-          "Commande envoyée, vous allez être redirigé vers Revolut pour le paiement.";
+          "Commande envoyée. Vous allez être redirigé vers la page de paiement.";
 
-        // Total en entier pour Revolut (tous les prix sont entiers)
-        const totalInt = Math.round(total);
-        const note = encodeURIComponent("Jardin des Saveurs - " + name);
-        const revolutUrl =
-          "https://revolut.me/avanderstratenwaillet/eur" + totalInt + "/" + note;
-
-        window.location.href = revolutUrl;
+        // redirection vers ta page Revolut.me (montant à saisir par le client)
+        window.location.href = "https://revolut.me/avanderstratenwaillet";
       } catch (error) {
         console.error("EmailJS error:", error);
         statusMessage.textContent =
-          "Erreur lors de l'envoi de l'email de commande. Vous pouvez réessayer ou nous contacter directement.";
+          "Erreur lors de l'envoi de l'email. Vous pouvez tout de même procéder au paiement.";
 
-        const totalInt = Math.round(total);
-        const note = encodeURIComponent("Jardin des Saveurs - " + name);
-        const revolutUrl =
-          "https://revolut.me/avanderstratenwaillet/eur" + totalInt + "/" + note;
-
-        // On envoie quand même vers Revolut au cas où
-        window.location.href = revolutUrl;
+        window.location.href = "https://revolut.me/avanderstratenwaillet";
       }
     });
   </script>
