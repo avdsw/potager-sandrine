@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Le potager de Sandrine – Commandes</title>
+  <title>Le Jardin des Saveurs – Commandes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
@@ -36,14 +36,14 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0.4rem;
       padding: 0.6rem;
-      opacity: 0.85; /* plus clair */
+      opacity: 0.85;
     }
 
     .hero-tile {
       border-radius: 14px;
       background-size: cover;
       background-position: center;
-      filter: brightness(1.1) saturate(1.1); /* on éclaircit */
+      filter: brightness(1.1) saturate(1.1);
       transform: scale(1.08);
       animation: heroFloat 18s ease-in-out infinite alternate;
       box-shadow: 0 6px 18px rgba(0,0,0,0.25);
@@ -73,7 +73,6 @@
       content: "";
       position: absolute;
       inset: 0;
-      /* overlay plus léger pour ne pas assombrir */
       background: linear-gradient(
         to bottom,
         rgba(12,18,8,0.2),
@@ -95,14 +94,37 @@
 
     .hero-content h1 {
       font-size: clamp(2rem, 4vw, 2.8rem);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
       text-shadow: 0 3px 10px rgba(0,0,0,0.6);
     }
 
+    .hero-subtitle {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      opacity: 0.95;
+    }
+
     .hero-content p {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       max-width: 720px;
       text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .about-link {
+      margin-top: 0.6rem;
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #ffffff;
+      background: rgba(0,0,0,0.12);
+      backdrop-filter: blur(4px);
+    }
+
+    .about-link:hover {
+      background: rgba(0,0,0,0.2);
     }
 
     /* -------- CONTENU -------- */
@@ -122,13 +144,13 @@
       margin-bottom: 1.2rem;
       font-size: 0.95rem;
       background: #ffffff;
-      padding: 0.7rem 0.9rem;
+      padding: 0.9rem 1rem;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.06);
     }
 
     .intro p {
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
     .steps {
@@ -139,6 +161,20 @@
 
     .steps li {
       margin-bottom: 0.2rem;
+    }
+
+    /* -------- SECTION A PROPOS -------- */
+    .about {
+      margin-bottom: 1.4rem;
+      background: #ffffff;
+      padding: 1rem 1.1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+      font-size: 0.94rem;
+    }
+
+    .about p {
+      margin-bottom: 0.4rem;
     }
 
     /* -------- PRODUITS -------- */
@@ -165,7 +201,7 @@
     .product-card img {
       width: 100%;
       height: 175px;
-      object-fit: contain; /* on voit bien pots, bouteilles, sachets */
+      object-fit: contain;
       background: #f8f3ea;
       border-radius: 8px;
       border: 1px solid #e2d7c6;
@@ -178,6 +214,12 @@
 
     .product-card p {
       font-size: 0.86rem;
+    }
+
+    .usage {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #5b6a54;
     }
 
     .price {
@@ -306,7 +348,7 @@
       color: #365c2c;
     }
 
-    /* --- PAYPAL / REVOLUT --- */
+    /* --- PAIEMENT --- */
     .alt-pay {
       margin-top: 1.2rem;
       padding-top: 0.8rem;
@@ -357,10 +399,23 @@
       padding: 0.4rem;
     }
 
+    /* -------- DISCLAIMER -------- */
+    .legal {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 0.5rem;
+      font-size: 0.75rem;
+      color: #68725f;
+    }
+
+    .legal p {
+      margin-bottom: 0.3rem;
+    }
+
     footer {
       text-align: center;
       font-size: 0.75rem;
-      padding: 1rem 0 1.4rem;
+      padding: 0.6rem 0 1.2rem;
       color: #6a745f;
     }
 
@@ -388,7 +443,7 @@
 </head>
 
 <body>
-  <!-- HERO AVEC 4 IMAGES POTAGER -->
+  <!-- HERO -->
   <header id="hero">
     <div class="hero-grid">
       <div class="hero-tile hero1"></div>
@@ -397,23 +452,53 @@
       <div class="hero-tile hero4"></div>
     </div>
     <div class="hero-content">
-      <h1>Le potager de Sandrine</h1>
+      <h1>Le Jardin des Saveurs</h1>
+      <div class="hero-subtitle">Le potager de Sandrine – Rebecq</div>
       <p>
-        Confitures, gelées, jus et noix du <strong>Jardin des Saveurs</strong> à Rebecq.<br>
-        Des fruits du jardin, cueillis à maturité, cuisinés tout en douceur.
+        Confitures, gelées, jus, huiles, pâtes de fruits et cerneaux de noix, tous issus de notre potager et verger,
+        cultivés et transformés à la main à Rebecq.
       </p>
+      <a href="#apropos" class="about-link">En savoir plus sur notre activité</a>
     </div>
   </header>
 
   <main class="container">
     <section class="intro">
+      <p><strong>Découvrez nos produits 100% naturels, cultivés et transformés avec soin à Rebecq.</strong></p>
+      <p>
+        Confitures, gelées, jus, compotes, pâtes de fruits, huiles et bien plus encore… tous issus directement de notre
+        potager et verger, sans artifices, simplement le goût authentique de la nature.
+      </p>
+      <p>
+        👉 Chaque produit est fait maison, en petites quantités, avec nos propres fruits et légumes, pour vous offrir fraîcheur,
+        qualité et authenticité. Merci de soutenir une production locale, respectueuse de la terre et de ses saisons 🌱.
+      </p>
       <p><strong>Comment ça marche ?</strong></p>
       <ol class="steps">
         <li>Je sélectionne les produits et les quantités.</li>
         <li>Je complète mon nom et mon email.</li>
         <li>Je clique sur <em>« Envoyer ma commande & recevoir le récap »</em> pour recevoir un email récapitulatif.</li>
-        <li>Je paie le montant total par Revolut ou PayPal, en utilisant le total affiché ci-dessous ou dans l’email.</li>
+        <li>Je paie le montant total par Revolut ou PayPal, en utilisant le total affiché ou celui de l’email.</li>
       </ol>
+    </section>
+
+    <!-- A PROPOS -->
+    <section class="about" id="apropos">
+      <h2>À propos du Jardin des Saveurs</h2>
+      <p>
+        Au Jardin des Saveurs, nous cultivons et transformons nos produits à Rebecq, avec une approche 100 % naturelle
+        et respectueuse de la terre.
+      </p>
+      <p>
+        Fruits, légumes, herbes aromatiques et fleurs comestibles grandissent ici sans produits chimiques, simplement nourris
+        par un sol vivant et des engrais organiques. Chaque récolte est cueillie à la main puis transformée sur place en jus,
+        confitures, huiles, pâtes de fruits, cerneaux de noix, poudres de paprika ou de gingembre…
+      </p>
+      <p>
+        Des produits simples, sains et savoureux, élaborés en petites quantités pour garantir fraîcheur et authenticité.
+        Notre objectif : vous faire redécouvrir le vrai goût des saisons, à travers une production locale, transparente
+        et pleine de saveurs.
+      </p>
     </section>
 
     <!-- PRODUITS -->
@@ -425,7 +510,8 @@
         <div class="product-card" data-name="Confiture de prunes bleues" data-price="7">
           <img src="IMG_3318.jpg" alt="Confiture de prunes bleues artisanale" />
           <h3>Confiture de prunes bleues</h3>
-          <p>Prunes bleues du jardin (66%), sucre, gélifiant naturel (agar-agar).</p>
+          <p>Confiture riche et légèrement acidulée, préparée avec nos prunes bleues du jardin.</p>
+          <p class="usage">Idée dégustation : sur une tartine beurrée, dans un yaourt nature ou avec un fromage frais.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -436,7 +522,8 @@
         <div class="product-card" data-name="Confiture de figues" data-price="7">
           <img src="IMG_3319.jpg" alt="Confiture de figues artisanale" />
           <h3>Confiture de figues</h3>
-          <p>Figues gorgées de soleil (66%), sucre, agar-agar.</p>
+          <p>Une confiture généreuse, douce et parfumée, à base de figues gorgées de soleil.</p>
+          <p class="usage">Idée dégustation : avec un plateau de fromages, sur du pain aux noix ou dans une tarte maison.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -447,7 +534,8 @@
         <div class="product-card" data-name="Confiture de prunes blanches" data-price="7">
           <img src="IMG_3320.jpg" alt="Confiture de prunes blanches artisanale" />
           <h3>Confiture de prunes blanches</h3>
-          <p>Prunes blanches du verger (66%), sucre, agar-agar.</p>
+          <p>Texture fondante et goût délicat, à partir de prunes blanches du verger.</p>
+          <p class="usage">Idée dégustation : sur brioche, crêpes ou en garniture d’un gâteau roulé.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -458,7 +546,8 @@
         <div class="product-card" data-name="Confiture de cerises" data-price="7">
           <img src="IMG_3321.jpg" alt="Confiture de cerises artisanale" />
           <h3>Confiture de cerises</h3>
-          <p>Cerises bien mûres (66%), sucre, agar-agar.</p>
+          <p>Une confiture gourmande, à la saveur intense de cerises bien mûres.</p>
+          <p class="usage">Idée dégustation : sur tartine, avec un fromage blanc ou en garniture de cheesecake.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -469,7 +558,8 @@
         <div class="product-card" data-name="Gelée de poires" data-price="7">
           <img src="IMG_3322.jpg" alt="Gelée de poires artisanale" />
           <h3>Gelée de poires</h3>
-          <p>Jus de poires du verger (66%), sucre, agar-agar.</p>
+          <p>Gelée délicate au jus de poires du verger, au goût doux et légèrement miellé.</p>
+          <p class="usage">Idée dégustation : sur des crêpes, une tartine ou en nappage d’un gâteau.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -480,7 +570,8 @@
         <div class="product-card" data-name="Confiture de fraises" data-price="7">
           <img src="IMG_3323.jpg" alt="Confiture de fraises artisanale" />
           <h3>Confiture de fraises</h3>
-          <p>Fraises du jardin (66%), sucre, agar-agar.</p>
+          <p>La classique du potager : fraises du jardin, parfumées et généreuses.</p>
+          <p class="usage">Idée dégustation : au petit-déjeuner, avec yaourt, fromage blanc ou crêpes.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -491,7 +582,8 @@
         <div class="product-card" data-name="Confiture de mûres" data-price="7">
           <img src="IMG_3324.jpg" alt="Confiture de mûres artisanale" />
           <h3>Confiture de mûres</h3>
-          <p>Mûres sauvages (66%), sucre, agar-agar.</p>
+          <p>Une confiture intense et fruitée, à base de mûres sauvages cueillies à la main.</p>
+          <p class="usage">Idée dégustation : sur pain complet, dans un yaourt ou en coulis sur un dessert.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -502,7 +594,8 @@
         <div class="product-card" data-name="Gelée de coings" data-price="7">
           <img src="IMG_3325.jpg" alt="Gelée de coings artisanale" />
           <h3>Gelée de coings</h3>
-          <p>Jus de coings (66%), sucre, agar-agar.</p>
+          <p>Gelée parfumée et légèrement acidulée, à base de coings du verger.</p>
+          <p class="usage">Idée dégustation : sur une tartine beurrée, avec du fromage ou en accompagnement de volailles.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -513,7 +606,8 @@
         <div class="product-card" data-name="Confiture fraises-rhubarbe" data-price="7">
           <img src="IMG_3326.jpg" alt="Confiture de fraises-rhubarbe artisanale" />
           <h3>Confiture fraises-rhubarbe</h3>
-          <p>Duo fraises & rhubarbe (33% / 33%), sucre, agar-agar.</p>
+          <p>Alliance gourmande de la douceur des fraises et de l’acidité de la rhubarbe.</p>
+          <p class="usage">Idée dégustation : au petit-déjeuner, dans un cake ou sur un crumble.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -524,7 +618,8 @@
         <div class="product-card" data-name="Confiture de mirabelles" data-price="7">
           <img src="IMG_3327.jpg" alt="Confiture de mirabelles artisanale" />
           <h3>Confiture de mirabelles</h3>
-          <p>Mirabelles dorées (66%), sucre, agar-agar.</p>
+          <p>Une confiture dorée et parfumée, à base de mirabelles bien sucrées.</p>
+          <p class="usage">Idée dégustation : sur brioche, dans une tarte ou avec un fromage frais.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -535,7 +630,8 @@
         <div class="product-card" data-name="Confiture de rhubarbe" data-price="7">
           <img src="IMG_3328.jpg" alt="Confiture de rhubarbe artisanale" />
           <h3>Confiture de rhubarbe</h3>
-          <p>Rhubarbe du potager (66%), sucre, agar-agar.</p>
+          <p>Une confiture au caractère acidulé, préparée avec notre rhubarbe du potager.</p>
+          <p class="usage">Idée dégustation : sur tartine, dans un yaourt ou pour garnir un gâteau.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -546,7 +642,8 @@
         <div class="product-card" data-name="Gelée de pommes" data-price="7">
           <img src="IMG_3329.jpg" alt="Gelée de pommes artisanale" />
           <h3>Gelée de pommes</h3>
-          <p>Jus de pommes (66%), sucre, agar-agar.</p>
+          <p>Gelée douce au jus de pommes, idéale pour petits et grands.</p>
+          <p class="usage">Idée dégustation : sur crêpes, tartines ou en accompagnement de crumbles.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Quantité :</span>
@@ -558,7 +655,8 @@
         <div class="product-card" data-name="Jus de pommes" data-price="4">
           <img src="IMG_3330.jpg" alt="Jus de pommes artisanal 1L" />
           <h3>Jus de pommes</h3>
-          <p>Pommes 100 %, sans sucre ajouté – bouteille 1 L.</p>
+          <p>Jus 100 % pommes, sans sucre ajouté, pressé à partir de nos fruits.</p>
+          <p class="usage">Idée dégustation : bien frais au petit-déjeuner ou en goûter pour les enfants.</p>
           <p class="price">4 €</p>
           <div class="qty-line">
             <span>Qté bouteilles :</span>
@@ -569,7 +667,8 @@
         <div class="product-card" data-name="Jus pommes-poires (60/40)" data-price="4">
           <img src="IMG_3331.jpg" alt="Jus de pommes-poires 60/40 artisanal 1L" />
           <h3>Jus pommes-poires (60/40)</h3>
-          <p>Pommes (60 %) & poires (40 %), sans sucre ajouté – 1 L.</p>
+          <p>Un équilibre doux entre la pomme et la poire, sans sucre ajouté.</p>
+          <p class="usage">Idée dégustation : servi frais en famille, au petit-déjeuner ou au goûter.</p>
           <p class="price">4 €</p>
           <div class="qty-line">
             <span>Qté bouteilles :</span>
@@ -580,7 +679,8 @@
         <div class="product-card" data-name="Jus pommes-poires (80/20)" data-price="4">
           <img src="IMG_3332.jpg" alt="Jus de pommes-poires 80/20 artisanal 1L" />
           <h3>Jus pommes-poires (80/20)</h3>
-          <p>Pommes (80 %) & poires (20 %), sans sucre ajouté – 1 L.</p>
+          <p>Majorité de pommes avec une touche de poires, tout en douceur.</p>
+          <p class="usage">Idée dégustation : bien frais, nature, ou en base de cocktails sans alcool.</p>
           <p class="price">4 €</p>
           <div class="qty-line">
             <span>Qté bouteilles :</span>
@@ -592,7 +692,8 @@
         <div class="product-card" data-name="Cerneaux de noix au chocolat au lait" data-price="7">
           <img src="IMG_3333.jpg" alt="Cerneaux de noix au chocolat au lait" />
           <h3>Cerneaux de noix au chocolat au lait</h3>
-          <p>Noix du jardin enrobées de chocolat au lait – sachet 100 g.</p>
+          <p>Noix du jardin enrobées de chocolat au lait, croquantes et gourmandes.</p>
+          <p class="usage">Idée dégustation : en grignotage, avec un café ou pour décorer vos desserts.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Qté sachets :</span>
@@ -603,7 +704,8 @@
         <div class="product-card" data-name="Cerneaux de noix au chocolat noir" data-price="7">
           <img src="IMG_3334.jpg" alt="Cerneaux de noix au chocolat noir" />
           <h3>Cerneaux de noix au chocolat noir</h3>
-          <p>Noix du jardin enrobées de chocolat noir – sachet 100 g.</p>
+          <p>Noix enrobées de chocolat noir, au goût plus intense et légèrement amer.</p>
+          <p class="usage">Idée dégustation : avec un thé, un digestif ou en topping de glace.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Qté sachets :</span>
@@ -614,7 +716,8 @@
         <div class="product-card" data-name="Cerneaux de noix aux herbes de Provence" data-price="7">
           <img src="IMG_3335.jpg" alt="Cerneaux de noix aux herbes de Provence" />
           <h3>Cerneaux de noix aux herbes de Provence</h3>
-          <p>Noix grillées à l’huile d’olive et herbes de Provence – 100 g.</p>
+          <p>Noix grillées à l’huile d’olive et aux herbes de Provence.</p>
+          <p class="usage">Idée dégustation : à l’apéritif, dans une salade ou sur un plateau de fromages.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Qté sachets :</span>
@@ -625,7 +728,8 @@
         <div class="product-card" data-name="Cerneaux de noix au tamari" data-price="7">
           <img src="IMG_3336.jpg" alt="Cerneaux de noix au tamari" />
           <h3>Cerneaux de noix au tamari</h3>
-          <p>Noix grillées au tamari (sauce soja) – 100 g.</p>
+          <p>Noix grillées au tamari (sauce soja), pour une touche salée et parfumée.</p>
+          <p class="usage">Idée dégustation : pour l’apéro, dans une salade de crudités ou de nouilles asiatiques.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Qté sachets :</span>
@@ -636,7 +740,8 @@
         <div class="product-card" data-name="Cerneaux de noix au curry" data-price="7">
           <img src="IMG_3337.jpg" alt="Cerneaux de noix au curry" />
           <h3>Cerneaux de noix au curry</h3>
-          <p>Noix grillées au curry – 100 g.</p>
+          <p>Noix grillées au curry, légèrement relevées et très parfumées.</p>
+          <p class="usage">Idée dégustation : en apéritif ou pour ajouter du croquant à vos plats de légumes.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Qté sachets :</span>
@@ -648,7 +753,8 @@
         <div class="product-card" data-name="Pâtes de fruits" data-price="7">
           <img src="IMG_3340.jpg" alt="Pâtes de fruits artisanales" />
           <h3>Pâtes de fruits</h3>
-          <p>Assortiment de pâtes de fruits maison – sachet 150 g.</p>
+          <p>Assortiment de pâtes de fruits maison, moelleuses et très fruitées.</p>
+          <p class="usage">Idée dégustation : en fin de repas, au goûter des enfants ou avec un café.</p>
           <p class="price">7 €</p>
           <div class="qty-line">
             <span>Qté sachets :</span>
@@ -660,7 +766,8 @@
         <div class="product-card" data-name="Cuirs de fruits" data-price="10">
           <img src="cuirs-fruits.jpg" alt="Cuirs de fruits artisanaux" />
           <h3>Cuirs de fruits</h3>
-          <p>Cuirs de fruits 100 % fruits du jardin, séchés en douceur – 150 g.</p>
+          <p>Cuirs de fruits 100 % fruits du jardin, séchés en douceur, sans sucre ajouté.</p>
+          <p class="usage">Idée dégustation : en encas sain pour les enfants, en randonnée ou au bureau.</p>
           <p class="price">10 €</p>
           <div class="qty-line">
             <span>Qté sachets :</span>
@@ -672,7 +779,8 @@
         <div class="product-card" data-name="Huile de noix 100 ml" data-price="8">
           <img src="huile-noix-100.jpg" alt="Huile de noix 100 ml" />
           <h3>Huile de noix 100 ml</h3>
-          <p>Première pression à froid, noix du Jardin des Saveurs – bouteille 100 ml.</p>
+          <p>Huile de noix de première pression à froid, issue de nos noix à Rebecq.</p>
+          <p class="usage">Idée dégustation : en filet sur vos salades, légumes vapeur ou fromages frais.</p>
           <p class="price">8 €</p>
           <div class="qty-line">
             <span>Qté bouteilles :</span>
@@ -683,7 +791,8 @@
         <div class="product-card" data-name="Huile de noix 250 ml" data-price="16">
           <img src="huile-noix-250.jpg" alt="Huile de noix 250 ml" />
           <h3>Huile de noix 250 ml</h3>
-          <p>Huile de noix 100 % naturelle – bouteille 250 ml.</p>
+          <p>Huile de noix 100 % naturelle, pour sublimer vos salades et plats de saison.</p>
+          <p class="usage">Idée dégustation : dans vos salades, sur des légumes rôtis ou un fromage de chèvre.</p>
           <p class="price">16 €</p>
           <div class="qty-line">
             <span>Qté bouteilles :</span>
@@ -764,8 +873,22 @@
     </section>
   </main>
 
+  <!-- DISCLAIMER LEGAL -->
+  <section class="legal">
+    <p><strong>Mentions importantes :</strong></p>
+    <p>
+      Les produits présentés sur ce site sont élaborés artisanalement, en petites quantités, à partir des récoltes de notre potager et verger à Rebecq.
+      Les prix indiqués sont TTC et susceptibles d’évoluer en fonction des récoltes et des disponibilités.
+    </p>
+    <p>
+      Les photos sont non contractuelles : la présentation et le conditionnement peuvent légèrement varier d’un lot à l’autre.
+      Certains produits peuvent contenir ou avoir été en contact avec des allergènes (fruits à coque, gluten, soja, etc.).
+      En cas d’allergie ou de régime spécifique, n’hésitez pas à nous contacter avant toute commande.
+    </p>
+  </section>
+
   <footer>
-    Le Jardin des Saveurs – Rue Marais à Scailles 52, 1430 Rebecq
+    Le Jardin des Saveurs – Rue Marais à Scailles 52, 1430 Rebecq – Production locale 100% naturelle
   </footer>
 
   <script>
