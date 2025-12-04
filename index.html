@@ -19,26 +19,54 @@
       background: #f4f5ef;
     }
 
-    /* -------- HERO / SLIDESHOW EN HAUT -------- */
+    /* -------- HERO / BANDEAU POTAGER -------- */
     #hero {
       position: relative;
       height: 40vh;
       min-height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
       overflow: hidden;
+      background: radial-gradient(circle at top, #6b8d3f, #314122);
+      color: #fff;
     }
 
-    #hero-bg {
+    .hero-grid {
       position: absolute;
       inset: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.4rem;
+      padding: 0.6rem;
+      opacity: 0.45;
+    }
+
+    .hero-tile {
+      border-radius: 14px;
       background-size: cover;
       background-position: center;
-      filter: brightness(0.7);
-      transition: opacity 0.8s ease-in-out;
-      opacity: 0;
+      filter: contrast(1.1) saturate(1.1);
+      transform: scale(1.08);
+      animation: heroFloat 18s ease-in-out infinite alternate;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
+    .hero1 { background-image: url("hero1.jpg"); animation-delay: 0s; }
+    .hero2 { background-image: url("hero2.jpg"); animation-delay: 3s; }
+    .hero3 { background-image: url("hero3.jpg"); animation-delay: 6s; }
+    .hero4 { background-image: url("hero4.jpg"); animation-delay: 9s; }
+
+    @keyframes heroFloat {
+      0% {
+        transform: scale(1.08) translateY(2px);
+        filter: brightness(0.9) saturate(1.05);
+      }
+      50% {
+        transform: scale(1.13) translateY(-4px);
+        filter: brightness(1) saturate(1.15);
+      }
+      100% {
+        transform: scale(1.18) translateY(2px);
+        filter: brightness(0.95) saturate(1.2);
+      }
     }
 
     #hero::after {
@@ -47,28 +75,33 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(0,0,0,0.35),
-        rgba(0,0,0,0.55)
+        rgba(12,18,8,0.45),
+        rgba(12,18,8,0.85)
       );
     }
 
     .hero-content {
       position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 1rem 1.5rem;
-      max-width: 700px;
-      z-index: 1;
     }
 
     .hero-content h1 {
       font-size: clamp(2rem, 4vw, 2.8rem);
-      margin-bottom: 0.35rem;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      margin-bottom: 0.4rem;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.7);
     }
 
     .hero-content p {
       font-size: 0.98rem;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+      max-width: 720px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
     }
 
     /* -------- CONTENU -------- */
@@ -121,7 +154,7 @@
     .product-card img {
       width: 100%;
       height: 175px;
-      object-fit: contain; /* pour voir les pots / bouteilles / sachets en entier */
+      object-fit: contain; /* on voit bien pots, bouteilles, sachets */
       background: #f8f3ea;
       border-radius: 8px;
       border: 1px solid #e2d7c6;
@@ -298,6 +331,10 @@
       .container {
         padding-inline: 1rem;
       }
+
+      .hero-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
   </style>
 
@@ -314,9 +351,14 @@
 </head>
 
 <body>
-  <!-- HERO AVEC SLIDESHOW -->
+  <!-- HERO AVEC 4 IMAGES POTAGER -->
   <header id="hero">
-    <div id="hero-bg"></div>
+    <div class="hero-grid">
+      <div class="hero-tile hero1"></div>
+      <div class="hero-tile hero2"></div>
+      <div class="hero-tile hero3"></div>
+      <div class="hero-tile hero4"></div>
+    </div>
     <div class="hero-content">
       <h1>Le potager de Sandrine</h1>
       <p>
@@ -682,35 +724,6 @@
   </footer>
 
   <script>
-    /* -------- SLIDESHOW DU HERO -------- */
-    const heroImages = [
-      "IMG_3330.jpg",
-      "IMG_3331.jpg",
-      "IMG_3318.jpg",
-      "IMG_3340.jpg"
-      // tu peux remplacer par des photos de terre / potager (hero1.jpg, etc.)
-    ];
-
-    const heroBg = document.getElementById("hero-bg");
-    let heroIndex = 0;
-
-    function showHeroImage(index) {
-      if (!heroBg) return;
-      heroBg.style.opacity = 0;
-      setTimeout(() => {
-        heroBg.style.backgroundImage = `url('${heroImages[index]}')`;
-        heroBg.style.opacity = 1;
-      }, 250);
-    }
-
-    if (heroBg) {
-      showHeroImage(heroIndex);
-      setInterval(() => {
-        heroIndex = (heroIndex + 1) % heroImages.length;
-        showHeroImage(heroIndex);
-      }, 5000);
-    }
-
     /* -------- PANIER & TOTAUX -------- */
     const productCards = document.querySelectorAll(".product-card");
     const subtotalSpan = document.getElementById("subtotal");
