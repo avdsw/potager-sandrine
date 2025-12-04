@@ -399,17 +399,43 @@
       padding: 0.4rem;
     }
 
-    /* -------- DISCLAIMER -------- */
+    /* -------- CONDITIONS / LEGAL -------- */
     .legal {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 1rem 1.5rem 0.5rem;
-      font-size: 0.75rem;
+      padding: 1rem 1.5rem 1.5rem;
+      font-size: 0.78rem;
       color: #68725f;
+    }
+
+    .legal h3 {
+      font-size: 0.92rem;
+      margin: 0.6rem 0 0.25rem;
+      color: #3a4730;
     }
 
     .legal p {
       margin-bottom: 0.3rem;
+    }
+
+    /* -------- BANDEAU DE BAS DE PAGE -------- */
+    .footer-nav {
+      margin-top: 0.3rem;
+      background: #e9e9e9;
+      padding: 0.7rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      color: #222;
+    }
+
+    .footer-nav a:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -426,6 +452,12 @@
 
       .hero-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
       }
     }
   </style>
@@ -804,7 +836,7 @@
     </section>
 
     <!-- COMMANDE -->
-    <section class="order">
+    <section class="order" id="contact">
       <h2>Vos coordonnées & récapitulatif</h2>
       <form id="order-form">
         <div class="order-fields">
@@ -873,19 +905,87 @@
     </section>
   </main>
 
-  <!-- DISCLAIMER LEGAL -->
-  <section class="legal">
-    <p><strong>Mentions importantes :</strong></p>
+  <!-- CONDITIONS / POLITIQUES -->
+  <section class="legal" id="conditions">
+    <h3>Conditions générales d’utilisation et de vente</h3>
     <p>
-      Les produits présentés sur ce site sont élaborés artisanalement, en petites quantités, à partir des récoltes de notre potager et verger à Rebecq.
-      Les prix indiqués sont TTC et susceptibles d’évoluer en fonction des récoltes et des disponibilités.
+      L’utilisation de ce site et l’achat de produits auprès du Jardin des Saveurs impliquent l’acceptation
+      des présentes conditions générales. Nous pouvons mettre à jour ces conditions à tout moment ; le fait de
+      continuer à utiliser le site et de passer commande vaut acceptation des nouvelles conditions.
     </p>
     <p>
-      Les photos sont non contractuelles : la présentation et le conditionnement peuvent légèrement varier d’un lot à l’autre.
-      Certains produits peuvent contenir ou avoir été en contact avec des allergènes (fruits à coque, gluten, soja, etc.).
-      En cas d’allergie ou de régime spécifique, n’hésitez pas à nous contacter avant toute commande.
+      Le contrat de vente est conclu entre vous (le client) et Le Jardin des Saveurs à partir du moment où
+      nous confirmons et acceptons votre commande (par email ou lors de la préparation de celle-ci).
+      En passant commande, vous certifiez être majeur(e) et disposer de la capacité juridique pour contracter,
+      et que les informations fournies (nom, email, coordonnées) sont exactes.
+    </p>
+
+    <p><strong>Passation et annulation de commande</strong></p>
+    <p>
+      En validant votre commande, vous confirmez avoir pris connaissance des présentes conditions.
+      Vous disposez d’un délai de rétractation de 14 jours calendrier à compter de la réception des produits.
+      Le remboursement sera effectué sur le moyen de paiement utilisé lors de la commande, après retour
+      des produits en bon état.
+    </p>
+
+    <p><strong>Livraison & retrait</strong></p>
+    <p>
+      Vous pouvez choisir entre un retrait au Jardin des Saveurs (Rebecq) ou une livraison lorsque celle-ci
+      est proposée. Nous mettons tout en œuvre pour respecter les délais annoncés, mais ne pourrons être
+      tenus responsables des retards ou dommages causés par le transporteur ou par tout événement extérieur.
+    </p>
+
+    <p><strong>Retours</strong></p>
+    <p>
+      Les produits peuvent être retournés dans les 14 jours, à condition qu’ils n’aient pas été utilisés,
+      ouverts, modifiés ou détériorés, et qu’ils soient dans leur emballage d’origine.
+      Aucun retour ne peut être effectué sans accord préalable du Jardin des Saveurs et les frais de retour
+      restent à charge du client, sauf erreur de notre part.
+    </p>
+
+    <p><strong>Responsabilité</strong></p>
+    <p>
+      Nous veillons à ce que les informations figurant sur ce site soient aussi exactes et à jour que possible,
+      mais aucune garantie absolue ne peut être donnée. Le client reste responsable de la protection de ses
+      appareils et de ses données (virus, etc.). Les photos sont non contractuelles et les produits étant
+      artisanaux, de légères variations de couleur, de texture ou de présentation peuvent apparaître.
+    </p>
+
+    <p>
+      Rien dans ces conditions ne limite les droits impératifs du consommateur prévus par la législation
+      applicable en Belgique. Si une clause des présentes devait être jugée nulle ou inapplicable, les autres
+      clauses resteraient pleinement en vigueur.
+    </p>
+
+    <h3 id="confidentialite">Politique de confidentialité</h3>
+    <p>
+      Les données que vous nous transmettez (nom, email, message, contenu de la commande) sont utilisées
+      uniquement pour traiter vos commandes, vous répondre et, le cas échéant, assurer la livraison.
+      Elles ne sont ni vendues, ni cédées à des tiers, sauf obligation légale ou prestataires techniques
+      intervenant dans le traitement de la commande (par exemple, EmailJS pour l’envoi des emails).
+    </p>
+    <p>
+      Vous pouvez demander l’accès, la rectification ou la suppression de vos données en nous contactant
+      par email. Nous conservons vos données uniquement pour la durée nécessaire au traitement des commandes
+      et aux obligations légales (comptabilité, facturation…).
+    </p>
+
+    <h3 id="cookies">Politique de cookies</h3>
+    <p>
+      Ce site statique ne dépose pas volontairement de cookies de suivi à des fins publicitaires. Certains
+      services externes éventuellement intégrés (par exemple, liens de paiement ou hébergeur) peuvent toutefois
+      utiliser leurs propres cookies techniques. Vous pouvez gérer vos préférences de cookies via les paramètres
+      de votre navigateur.
     </p>
   </section>
+
+  <!-- BANDEAU BAS DE PAGE -->
+  <div class="footer-nav">
+    <a href="#contact">Contactez-nous</a>
+    <a href="#conditions">Conditions</a>
+    <a href="#confidentialite">Politique de confidentialité</a>
+    <a href="#cookies">Politique de cookies</a>
+  </div>
 
   <footer>
     Le Jardin des Saveurs – Rue Marais à Scailles 52, 1430 Rebecq – Production locale 100% naturelle
