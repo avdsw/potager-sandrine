@@ -25,7 +25,7 @@
       height: 40vh;
       min-height: 260px;
       overflow: hidden;
-      background: radial-gradient(circle at top, #6b8d3f, #314122);
+      background: radial-gradient(circle at top, #7fa84a, #3b521f);
       color: #fff;
     }
 
@@ -36,17 +36,17 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0.4rem;
       padding: 0.6rem;
-      opacity: 0.45;
+      opacity: 0.85; /* plus clair */
     }
 
     .hero-tile {
       border-radius: 14px;
       background-size: cover;
       background-position: center;
-      filter: contrast(1.1) saturate(1.1);
+      filter: brightness(1.1) saturate(1.1); /* on éclaircit */
       transform: scale(1.08);
       animation: heroFloat 18s ease-in-out infinite alternate;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
     }
 
     .hero1 { background-image: url("hero1.jpg"); animation-delay: 0s; }
@@ -56,16 +56,16 @@
 
     @keyframes heroFloat {
       0% {
-        transform: scale(1.08) translateY(2px);
-        filter: brightness(0.9) saturate(1.05);
+        transform: scale(1.06) translateY(1px);
+        filter: brightness(1.05) saturate(1.05);
       }
       50% {
-        transform: scale(1.13) translateY(-4px);
-        filter: brightness(1) saturate(1.15);
+        transform: scale(1.12) translateY(-3px);
+        filter: brightness(1.12) saturate(1.15);
       }
       100% {
-        transform: scale(1.18) translateY(2px);
-        filter: brightness(0.95) saturate(1.2);
+        transform: scale(1.16) translateY(1px);
+        filter: brightness(1.08) saturate(1.2);
       }
     }
 
@@ -73,10 +73,11 @@
       content: "";
       position: absolute;
       inset: 0;
+      /* overlay plus léger pour ne pas assombrir */
       background: linear-gradient(
         to bottom,
-        rgba(12,18,8,0.45),
-        rgba(12,18,8,0.85)
+        rgba(12,18,8,0.2),
+        rgba(12,18,8,0.5)
       );
     }
 
@@ -95,13 +96,13 @@
     .hero-content h1 {
       font-size: clamp(2rem, 4vw, 2.8rem);
       margin-bottom: 0.4rem;
-      text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
     }
 
     .hero-content p {
       font-size: 0.98rem;
       max-width: 720px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
 
     /* -------- CONTENU -------- */
@@ -128,6 +129,16 @@
 
     .intro p {
       margin-bottom: 0.35rem;
+    }
+
+    .steps {
+      margin-top: 0.5rem;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .steps li {
+      margin-bottom: 0.2rem;
     }
 
     /* -------- PRODUITS -------- */
@@ -295,7 +306,7 @@
       color: #365c2c;
     }
 
-    /* --- PAYPAL QR ALTERNATIF --- */
+    /* --- PAYPAL / REVOLUT --- */
     .alt-pay {
       margin-top: 1.2rem;
       padding-top: 0.8rem;
@@ -305,7 +316,33 @@
     }
 
     .alt-pay p {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .total-pay {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .total-pay span {
+      color: #7a4b12;
+    }
+
+    .revolut-link {
+      display: inline-block;
+      margin-top: 0.3rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid #3958a5;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, #3958a5, #4b70d0);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    .revolut-link:hover {
+      filter: brightness(1.05);
     }
 
     .paypal-qr {
@@ -313,7 +350,7 @@
       max-width: 50%;
       height: auto;
       display: block;
-      margin: 0 auto;
+      margin: 0.4rem auto 0;
       border-radius: 12px;
       background: #ffffff;
       box-shadow: 0 2px 6px rgba(0,0,0,0.12);
@@ -370,8 +407,13 @@
 
   <main class="container">
     <section class="intro">
-      <p>Choisissez vos produits ci-dessous, indiquez les quantités et complétez vos coordonnées.</p>
-      <p>Vous recevrez un récapitulatif par email, puis vous serez redirigé vers la page de paiement Revolut. Vous pouvez aussi payer via le QR code PayPal.</p>
+      <p><strong>Comment ça marche ?</strong></p>
+      <ol class="steps">
+        <li>Je sélectionne les produits et les quantités.</li>
+        <li>Je complète mon nom et mon email.</li>
+        <li>Je clique sur <em>« Envoyer ma commande & recevoir le récap »</em> pour recevoir un email récapitulatif.</li>
+        <li>Je paie le montant total par Revolut ou PayPal, en utilisant le total affiché ci-dessous ou dans l’email.</li>
+      </ol>
     </section>
 
     <!-- PRODUITS -->
@@ -654,7 +696,7 @@
 
     <!-- COMMANDE -->
     <section class="order">
-      <h2>Vos coordonnées & livraison</h2>
+      <h2>Vos coordonnées & récapitulatif</h2>
       <form id="order-form">
         <div class="order-fields">
           <div>
@@ -699,21 +741,24 @@
         </div>
 
         <button type="button" class="pay-btn" id="pay-button">
-          Commander et payer
+          Envoyer ma commande & recevoir le récap
         </button>
 
         <p id="status-message" class="status-message"></p>
 
-        <!-- MOYEN DE PAIEMENT ALTERNATIF : PAYPAL -->
+        <!-- ÉTAPE 2 : PAIEMENT -->
         <div class="alt-pay">
-          <p>
-            💳 Vous préférez payer avec <strong>PayPal</strong> ?<br>
-            Scannez ce QR code avec votre smartphone :
+          <p><strong>Étape 2 – Paiement</strong></p>
+          <p class="total-pay">
+            Montant total à payer : <span id="total-pay-amount">0,00 €</span>
           </p>
+          <p>Après avoir reçu l’email récapitulatif, vous pouvez payer :</p>
+          <p>• soit via <strong>Revolut / carte</strong> :</p>
+          <a href="https://revolut.me/avanderstratenwaillet" class="revolut-link" target="_blank" rel="noopener">
+            Ouvrir la page de paiement Revolut
+          </a>
+          <p>• soit via <strong>PayPal</strong> en scannant ce QR code :</p>
           <img src="qrcode.png" alt="QR code PayPal" class="paypal-qr" />
-          <p style="margin-top:0.4rem;">
-            Utilisez le montant indiqué dans l’email récapitulatif.
-          </p>
         </div>
       </form>
     </section>
@@ -729,6 +774,7 @@
     const subtotalSpan = document.getElementById("subtotal");
     const deliveryFeeSpan = document.getElementById("delivery-fee");
     const totalSpan = document.getElementById("total");
+    const totalPaySpan = document.getElementById("total-pay-amount");
     const deliveryRadios = document.querySelectorAll("input[name='delivery']");
 
     function getCartDetails() {
@@ -759,6 +805,7 @@
       subtotalSpan.textContent = subtotal.toFixed(2) + " €";
       deliveryFeeSpan.textContent = deliveryFee.toFixed(2) + " €";
       totalSpan.textContent = total.toFixed(2) + " €";
+      totalPaySpan.textContent = total.toFixed(2) + " €";
     }
 
     productCards.forEach((card) => {
@@ -828,18 +875,17 @@
         message: recapText
       };
 
-      statusMessage.textContent = "Envoi de votre commande...";
+      statusMessage.textContent =
+        "Envoi de votre commande...";
 
       try {
         await emailjs.send("service_5yw7g4q", "template_hyc543e", templateParams);
         statusMessage.textContent =
-          "Commande envoyée. Vérifiez votre email : vous pouvez maintenant payer (Revolut ou QR PayPal).";
-        window.location.href = "https://revolut.me/avanderstratenwaillet";
+          "Commande envoyée ✅ Vérifiez votre email : vous pouvez maintenant payer le montant indiqué via Revolut ou PayPal.";
       } catch (error) {
         console.error("EmailJS error:", error);
         statusMessage.textContent =
-          "Erreur lors de l'envoi de l'email. Vous pouvez tout de même procéder au paiement (Revolut ou QR PayPal) et nous contacter.";
-        window.location.href = "https://revolut.me/avanderstratenwaillet";
+          "Erreur lors de l'envoi de l'email. Vous pouvez tout de même nous contacter et utiliser le total affiché ci-dessus pour le paiement.";
       }
     });
   </script>
