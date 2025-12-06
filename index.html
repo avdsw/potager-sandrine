@@ -1968,35 +1968,30 @@
 
         <div class="payment-grid">
           <div class="card">
-            <h3>Virement bancaire &amp; Revolut</h3>
+            <h3>Virement bancaire</h3>
             <p style="font-size:0.9rem; color:#555;">
               Les coordonnées bancaires complètes sont indiquées dans l’e-mail de
               confirmation de commande pour un paiement par virement classique.
             </p>
-            <p style="font-size:0.9rem; color:#555; margin-top:0.4rem;">
-              Vous pouvez également payer via Revolut / carte en utilisant la page suivante :
-              <br />
-              <a href="https://revolut.me/avanderstratenwaillet" target="_blank" rel="noopener" style="text-decoration:underline;">
-                https://revolut.me/avanderstratenwaillet
-              </a>
-            </p>
             <p style="font-size:0.85rem; color:#777; margin-top:0.5rem;">
-              Dans tous les cas, un e-mail vous confirme la bonne réception de votre paiement.
+              Vous pouvez également payer via Revolut ou PayPal / carte en scannant les
+              QR codes ci-contre. Le montant à encoder correspond au total indiqué dans
+              votre e-mail de récapitulatif.
             </p>
           </div>
 
           <div class="card">
-            <h3>QR code PayPal / carte</h3>
+            <h3>QR codes de paiement</h3>
             <div class="qr-row">
               <div class="qr-card">
-                <img src="qrcode.png" alt="QR code PayPal / carte pour Le Jardin des Saveurs" />
+                <img src="Rqrcode.png" alt="QR code Revolut" />
+                <div>Revolut</div>
+              </div>
+              <div class="qr-card">
+                <img src="PPqrcode.png" alt="QR code PayPal / carte" />
                 <div>PayPal / carte</div>
               </div>
             </div>
-            <p style="font-size:0.85rem; color:#777; margin-top:0.5rem;">
-              Scannez le QR code avec votre téléphone pour payer via PayPal ou carte.
-              Le montant à encoder correspond au total indiqué dans votre e-mail de récapitulatif.
-            </p>
           </div>
         </div>
       </div>
@@ -2422,15 +2417,15 @@
     const totalsTextDelivery = totals.delivery.toFixed(2) + " €";
     const totalsTextGrand = totals.grand.toFixed(2) + " €";
 
-    // URL publique du site pour le QR code
+    // URL publique du site pour les QR codes
     const baseUrl = "https://avdsw.github.io/potager-sandrine";
 
     const paymentInstructions =
       "Instructions de paiement :\n" +
       "- Par virement : les coordonnées bancaires complètes vous seront indiquées dans l’e-mail (merci d’indiquer votre nom en communication).\n" +
-      "- Via Revolut / carte : en utilisant la page suivante : https://revolut.me/avanderstratenwaillet\n" +
-      "- Via PayPal / carte : en scannant le QR code (ou en ouvrant le lien) : " + baseUrl + "/qrcode.png\n\n" +
-      "Si l’image du QR code ne s’affiche pas correctement, vous pouvez aussi revenir sur la page de commande : " + baseUrl + "\n";
+      "- Par Revolut : en scannant le QR code (ou en ouvrant le lien) : " + baseUrl + "/Rqrcode.png\n" +
+      "- Par PayPal / carte : en scannant le QR code (ou en ouvrant le lien) : " + baseUrl + "/PPqrcode.png\n\n" +
+      "Si les images des QR codes ne s’affichent pas correctement, vous pouvez aussi revenir sur la page de commande : " + baseUrl + "\n";
 
     const messageText =
       "Bonjour " + name + ",\n\n" +
